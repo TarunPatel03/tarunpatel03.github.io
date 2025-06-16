@@ -1,0 +1,6 @@
+<nav>
+  <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+  <a href="/portfolio/" {% if page.url contains '/portfolio/' %}class="active"{% endif %}>Portfolio</a>
+  <a href="/cv/" {% if page.url contains '/cv/' %}class="active"{% endif %}>CV</a>
+  <a href="/socials/" {% if page.url contains '/socials/' %}class="active"{% endif %}>Socials</a>
+</nav>
