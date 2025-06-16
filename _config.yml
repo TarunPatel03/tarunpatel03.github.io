@@ -38,7 +38,7 @@ collections:
   pages:
     output: true
     permalink: /:title/
-yes
+
 defaults: []
 permalink: pretty
 
