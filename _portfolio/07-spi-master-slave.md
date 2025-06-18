@@ -5,13 +5,13 @@ collection: portfolio
 layout: portfolio
 ---
 
-## 📌 Problem / Motivation
+## Problem / Motivation
 
 As part of my university embedded systems coursework, I developed a fully functional SPI communication protocol between two Atmega328P microcontrollers using bare-metal AVR C programming. The goal of the project was to implement real-time full-duplex data exchange at the register level without using Arduino libraries or any external abstraction layers.
 
 This project allowed me to gain hands-on experience with synchronous serial protocols, hardware interrupt design, register configuration, and master-slave synchronization — all of which are critical for real-world embedded communication systems used in industrial, automotive, and IoT devices.
 
-## ⚙️ System Architecture
+## System Architecture
 
 - **Microcontrollers:** Two Atmega328P boards communicating via SPI in full-duplex mode.
 - **Master Controller:** Generates clock signals, initiates transactions, and sends command/data packets.
@@ -20,7 +20,7 @@ This project allowed me to gain hands-on experience with synchronous serial prot
 - **Full-Duplex Operation:** Simultaneous read/write data transfer synchronized to SPI clock.
 - **Interrupt Service Routines (ISRs):** Efficient non-blocking communication using hardware interrupts for both master and slave data exchange.
 
-## 🧪 Key Technical Challenges
+## Key Technical Challenges
 
 - Configuring SPI control registers to correctly handle clock polarity (CPOL), clock phase (CPHA), and clock speed synchronization.
 - Managing data exchange timing for full-duplex operation at hardware clock speed.
@@ -28,7 +28,7 @@ This project allowed me to gain hands-on experience with synchronous serial prot
 - Debugging low-level SPI timing issues using logic analyzers, serial output, and oscilloscope traces.
 - Writing clean modular embedded firmware that separates hardware abstraction from protocol logic.
 
-## 🚀 Future Work & Expansion
+## Future Work & Expansion
 
 - Extend protocol to handle multi-byte messages with buffering and acknowledgment.
 - Implement error detection using CRC or parity checking.
@@ -36,7 +36,7 @@ This project allowed me to gain hands-on experience with synchronous serial prot
 - Integrate SPI-based peripheral devices (e.g. sensors, displays) for practical embedded system applications.
 - Combine with higher-layer protocol design for more complex device-to-device communication frameworks.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 AVR C (bare-metal), Atmega328P, SPI Protocol, Register-Level Programming, Interrupt-Driven Firmware, Real-Time Embedded Systems, Logic Analyzer Debugging
 

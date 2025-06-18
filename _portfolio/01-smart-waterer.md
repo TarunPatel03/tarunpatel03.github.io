@@ -5,13 +5,13 @@ collection: portfolio
 layout: portfolio
 ---
 
-## 📌 Problem / Motivation
+## Problem / Motivation
 
 After completing my embedded systems course, I wanted to continue developing my skills in real-world microcontroller programming using the ESP32 platform. This project started as a way to automate irrigation for my personal basil plant, allowing me to apply embedded concepts like ADC, interrupts, and WiFi-based telemetry. I personally sourced, integrated, and configured all hardware components. 
 
 More importantly, this system serves as one of the first nodes in a larger IoT network that I’m building — where a Raspberry Pi will act as a central hub for multiple ESP32-based devices, providing unified monitoring, data collection, and remote control across my entire IoT ecosystem. The Raspberry Pi also hosts my Linux-based packet sniffer, tying together my embedded and networking interests into one integrated system.
 
-## ⚙️ System Architecture
+## System Architecture
 
 - **Sensors:** Soil moisture probes connected to the ESP32’s ADC channels.
 - **Control Logic:** Automated relay switching to control a water pump based on real-time moisture levels.
@@ -19,7 +19,7 @@ More importantly, this system serves as one of the first nodes in a larger IoT n
 - **Communication:** MQTT protocol for lightweight telemetry and future control signaling.
 - **Power Management:** Leveraging ESP32’s low-power sleep modes for energy-efficient operation.
 
-## 🧪 Key Technical Challenges
+## Key Technical Challenges
 
 - Calibrating analog sensor readings for accurate moisture thresholds.
 - Safely isolating relay circuits to prevent pump damage and electrical faults.
@@ -27,7 +27,7 @@ More importantly, this system serves as one of the first nodes in a larger IoT n
 - Writing non-blocking embedded firmware to allow concurrent sensor sampling, network communication, and relay control.
 - Designing hardware that’s modular and scalable for future multi-zone irrigation.
 
-## 🚀 Future Work & Expansion
+## Future Work & Expansion
 
 - Build additional ESP32 sensor nodes for other plants/zones.
 - Expand the Raspberry Pi server into a full IoT gateway for centralized device management.
@@ -35,8 +35,8 @@ More importantly, this system serves as one of the first nodes in a larger IoT n
 - Implement secure OTA (Over-The-Air) firmware updates for all ESP32 nodes.
 - Long-term goal of fully containerizing the Raspberry Pi server to run multiple IoT, logging, and monitoring services concurrently.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 ESP32, C++, ADC, MQTT, Raspberry Pi, Relay Control, WiFi, Linux Networking, Embedded Systems, IoT Architecture
 
-[🔗 View GitHub Repository](https://github.com/Reetabass/smart-watering)
+

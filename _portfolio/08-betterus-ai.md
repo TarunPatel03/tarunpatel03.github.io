@@ -5,13 +5,13 @@ collection: portfolio
 layout: portfolio
 ---
 
-## 📌 Problem / Motivation
+## Problem / Motivation
 
 I developed Better-Us AI — a web-based application designed to help users improve communication in personal relationships. The system integrates OpenAI's GPT API to analyze user-submitted messages and suggest improved phrasing based on psychological communication principles. My goal was to apply modern backend development techniques while integrating AI-powered language models into a scalable, secure, and database-driven web platform.
 
 This project allowed me to expand my skills into cloud deployment, full-stack API design, user authentication, and relational database management, while also exploring applied NLP use cases.
 
-## ⚙️ System Architecture
+## System Architecture
 
 - **Frontend:** Built using React for user interaction, form submissions, and profile management.
 - **Backend API:** FastAPI framework used to handle RESTful endpoints, GPT API calls, and business logic.
@@ -20,7 +20,7 @@ This project allowed me to expand my skills into cloud deployment, full-stack AP
 - **AI Integration:** OpenAI GPT API utilized for real-time message analysis, rewriting, and coaching suggestions.
 - **Deployment:** Hosted on AWS with scalable architecture to handle concurrent users and persistent storage.
 
-## 🧪 Key Technical Challenges
+## Key Technical Challenges
 
 - Designing efficient database schemas for dynamic user profile data.
 - Securing API endpoints while integrating third-party authentication flows.
@@ -28,7 +28,7 @@ This project allowed me to expand my skills into cloud deployment, full-stack AP
 - Managing state across multiple user sessions and preserving data consistency.
 - Deploying backend and frontend components to AWS with proper configuration for scaling and stability.
 
-## 🚀 Future Work & Expansion
+## Future Work & Expansion
 
 - Add support for partner-linked profiles for relationship-specific communication adjustments.
 - Implement natural language processing (NLP) models for sentiment analysis and emotion detection.
@@ -36,8 +36,8 @@ This project allowed me to expand my skills into cloud deployment, full-stack AP
 - Add subscription-based features using Stripe integration for monetization.
 - Build analytics dashboard for users to track communication improvement over time.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 FastAPI, React, OpenAI GPT API, PostgreSQL, Clerk Authentication, AWS Deployment, SQL Database Design, REST APIs, Full-Stack Web Development
 
-[🔗 View the GitHub Repository](https://github.com/Reetabass/Better-Us-AI)
+

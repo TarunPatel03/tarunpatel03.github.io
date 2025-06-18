@@ -5,13 +5,13 @@ collection: portfolio
 layout: portfolio
 ---
 
-## 📌 Problem / Motivation
+## Problem / Motivation
 
 This project was built as part of my embedded systems coursework to apply real-time programming concepts for controlling physical systems. I implemented a full traffic light control system entirely in AVR C on the Atmega328P microcontroller, focusing on timing synchronization, interrupt-driven pedestrian crossing, and safe state transitions.
 
 The project reinforced my understanding of timers, external interrupts, USART debugging, and modular embedded firmware design — all critical skills for real-time embedded control applications.
 
-## ⚙️ System Architecture
+## System Architecture
 
 - **Main Traffic Controller:** Timer/Counter modules control the timing of light states for vehicles and pedestrians.
 - **Pedestrian Crossing:** External interrupts trigger pedestrian crossing requests with safe state handling.
@@ -19,7 +19,7 @@ The project reinforced my understanding of timers, external interrupts, USART de
 - **USART Debugging:** Serial output used to monitor system state and timing during development.
 - **Real-Time Design:** Fully interrupt-driven architecture ensures reliable timing and responsiveness.
 
-## 🧪 Key Technical Challenges
+## Key Technical Challenges
 
 - Properly synchronizing multiple timers to control independent light cycles.
 - Designing safe pedestrian crossing logic to avoid race conditions between external interrupts and main control loop.
@@ -27,14 +27,14 @@ The project reinforced my understanding of timers, external interrupts, USART de
 - Managing state machines to handle system transitions predictably.
 - Debugging real-time behavior via USART output during live system operation.
 
-## 🚀 Future Work & Expansion
+## Future Work & Expansion
 
 - Expand system to simulate multi-intersection coordination.
 - Implement fail-safe watchdog timer functionality.
 - Add configuration options via serial interface or onboard input switches.
 - Integrate ultrasonic or infrared sensors for real-time traffic flow management.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 AVR C, Atmega328P, External Interrupts, Timer/Counter Modules, USART Debugging, Buzzer Control, Real-Time Embedded Systems
 
