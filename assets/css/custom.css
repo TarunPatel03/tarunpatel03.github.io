@@ -64,7 +64,7 @@ body {
 
 /* Default navigation for all pages */
 nav {
-  background: #f8f9fa;
+  background: transparent;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -72,34 +72,34 @@ nav {
   position: sticky;
   top: 0;
   z-index: 2;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-  color: #333;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffaa00;
-}
-
-nav a.active {
-  color: #ffaa00;
-}
-
-/* Home page specific navigation styles */
-.home-body nav {
-  background: transparent;
   box-shadow: none;
 }
 
-.home-body nav a {
-  color: #fff;
+nav a {
+  color: #fffefe;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border: 2px solid rgba(51, 51, 51, 0.6);
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-family: 'Orbitron', sans-serif;
 }
 
+nav a:hover {
+  background-color: rgba(51, 51, 51, 0.1);
+  border-color: #ffaa00;
+  color: #ffaa00;
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background-color: rgba(255, 170, 0, 0.1);
+  border-color: #ffaa00;
+  color: #ffaa00;
+}
 
 .project-stack {
   display: flex;
@@ -188,7 +188,7 @@ nav a.active {
   color: #ffffff;
   text-decoration: none;
   padding: 0.8rem 2rem;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(51, 51, 51, 0.6);
   border-radius: 8px;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -196,8 +196,9 @@ nav a.active {
 }
 
 .hero-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(51, 51, 51, 0.1);
+  border-color: #ffaa00;
+  color: #ffaa00;
   transform: translateY(-2px);
 }
 
