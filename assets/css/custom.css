@@ -1,10 +1,36 @@
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
+/* General styles for all pages */
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
+
+/* Default page styling */
+body {
+  color: #333;
+  background: #fff;
+}
+
+/* Home page specific styling */
+.home-body {
+  color: white;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Vanta background container */
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 
 .portfolio-grid {
   display: grid;
@@ -36,8 +62,9 @@ body {
 
 
 
+/* Default navigation for all pages */
 nav {
-  background: transparent;
+  background: #f8f9fa;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -45,11 +72,11 @@ nav {
   position: sticky;
   top: 0;
   z-index: 2;
-  box-shadow: 0 0 10px rgba(238, 238, 238, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
-  color: #fff;
+  color: #333;
   font-size: 1.2rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -60,7 +87,152 @@ nav a:hover {
 }
 
 nav a.active {
-  color: #ffaa00; /* same as hover for now */
+  color: #ffaa00;
+}
+
+/* Home page specific navigation styles */
+.home-body nav {
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-body nav a {
+  color: #fff;
 }
 
 
+.project-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.project-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-left: 6px solid #03a9f4;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  width: 90%;
+  max-width: 800px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.project-card a {
+  color: #fff;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: block;
+}
+
+.project-card:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
+}
+
+.project-card a:hover {
+  color: #ddd;
+}
+
+.hero-wrapper {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: transparent;
+}
+
+.hero-center {
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.hero-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.hero-link-description {
+  font-size: 1rem;
+  opacity: 0.85;
+  color: #f0f0f0;
+  max-width: 600px;
+  line-height: 1.8;
+  margin-top: 2rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-link-description p {
+  margin: 0.8rem 0;
+  padding: 0.5rem 0;
+}
+
+.hero-link-description strong {
+  display: inline-block;
+  min-width: 85px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

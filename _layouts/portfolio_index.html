@@ -6,15 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #eee;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    nav a {
+      color: #fff !important;
+    }
 
     h1 {
+      font-family: 'Outfit', sans-serif;
       font-size: 3rem;
-      color: #333131;
-      text-decoration: none;
-      transition: color 0.3s ease;
+      color: #ffffff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      animation: fadeInDown 0.8s ease-out;
     }
     #vanta-bg {
       position: fixed;
@@ -67,15 +92,15 @@
   </nav>
 
   <div class="container">
-    <h1>Projects</h1>
+    <h1>Portfolio</h1>
 
-    <ul class="portfolio-list">
+    <div class="project-stack">
       {% for project in site.portfolio %}
-        <li>
-          <a href="{{ project.url }}">{{ project.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="project-card">
+      <a href="{{ project.url }}">{{ project.title }}</a>
+    </div>
+  {% endfor %}
+</div>
   </div>
 
   <!-- Scripts -->
