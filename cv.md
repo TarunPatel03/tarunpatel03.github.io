@@ -4,27 +4,17 @@ title: CV
 permalink: /cv/
 ---
 
-# Michael Reed Basangan
- 0474 579 039 | 📧 michael.basangan@student.uts.edu.au  
-[linkedin.com/in/micheelreedbas](https://linkedin.com/in/micheelreedbas) | [github.com/Reetabass](https://github.com/Reetabass)  
-Expected Graduation: June 2026 | Citizenship: USA
+# Tarun Himanshu Patel
+ 0494 171 753 | 📧 tarun.h.patel@student.uts.edu.au  
+[linkedin.com/in/micheelreedbas](https://linkedin.com/in/micheelreedbas) | [github.com/TarunPatel03](https://github.com/TarunPatel03)  
+Expected Graduation: June 2027 | Citizenship: AUS
 
 ## About Me
 Passionate software engineering student with a strong foundation in low-level C programming and embedded systems. Experienced in real-time microcontroller projects, STL-style containers in C++, and excited to grow into a Linux kernel engineering role. Interested in contributing to open-source systems like Ubuntu while developing deep kernel expertise.
 
 ## Education
-**University of Technology Sydney** — Bachelor of Engineering Science (Software Engineering)  
-January 2024 - June 2026 | GPA: 6.50/7.00
-
-- Fundamentals of C — 92% (High Distinction)
-- Database Fundamentals — 92%
-- Systems Testing and Quality Management
-
-## Clubs & Societies
-- UTS Linux Club (Member)
-- UTS Cyber Security Society (Committee Member)
-- Programming Society (Member)
-- UTS Surfing Club (Vice President)
+**University of Technology Sydney** — Bachelor of Engineering (Software Engineering) (Honours)
+January 2024 - June 2027 | GPA: 6.00/7.00
 
 ## Skills
 
@@ -63,8 +53,3 @@ Team Collaboration, Project Management, Remote Work, Public Speaking
 - **Treasurer, The FINstitute, James Cook University** (Feb 2023–Feb 2024) — Managed finances, secured grants, and coordinated budgets.
 - **Machine Technician, U.S. Coast Guard** (Mar 2018–Apr 2022) — Led team maintenance projects, completed 80+ SAR missions, and delivered vessel support.
 
-## Honors & Awards
-- JCU International Excellence Scholarship (July 2022)
-- U.S. Coast Guard Commendation Medal (Apr 2022)
-- U.S. Coast Guard Achievement Medal (May 2022)
-- Certificate of Appreciation - JCU (Feb 2023)
