@@ -13,23 +13,23 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: reetabass
-email: michael.basangan@student.uts.edu.au
+title: TarunPatel
+email: tarun.h.patel@student.uts.edu.au
 description: >-
   I am a passionate and systems-focused software engineering student with a strong foundation in low-level C programming and embedded systems. I have developed real-time microcontroller projects using AVR C and am currently building STL-style containers in C++ to understand memory management and iterator design. I thrive in environments where I can work at the hardware-software boundary and am excited to grow into a Linux kernel engineering role. I aim to contribute to open-source systems like Ubuntu while developing deep kernel expertise within a globally distributed team.
 
 baseurl: ""
-url: https://reetabass.github.io
-github_username: reetabass
+url: https://TarunPatel03.github.io
+github_username: TarunPatel03
 
 author:
-  avatar: "Profile.jpg"
-  name: "Michael Basangan"
-  bio: "Software Engineering student focused on embedded systems and low-level C programming."
+  avatar: ""
+  name: "Tarun Patel"
+  bio: "Software Engineering student focused on embedded systems and programming."
   location: "Sydney"
   employer: "University of Technology Sydney"
-  github: "reetabass"
-  linkedin: "micheelreedbas"
+  github: "TarunPatel03"
+  linkedin: ""
 
 collections:
   portfolio:
