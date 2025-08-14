@@ -6,7 +6,7 @@ permalink: /cv/
 
 # Tarun Himanshu Patel
  0494 171 753 | 📧 tarun.h.patel@student.uts.edu.au  
-[linkedin.com/in/micheelreedbas](https://linkedin.com/in/micheelreedbas) | [github.com/TarunPatel03](https://github.com/TarunPatel03)  
+[linkedin.com/in/](https://linkedin.com/in/) | [github.com/TarunPatel03](https://github.com/TarunPatel03)  
 Expected Graduation: June 2027 | Citizenship: AUS
 
 ## About Me
