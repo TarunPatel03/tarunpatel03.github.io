@@ -1,75 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }} | Tarun Himanshu Patel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
-        }
-        #vanta-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .cv-container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 1;
-        }
-        .cv-container h1, .cv-container h2, .cv-container h3 {
-            color: #333;
-        }
-        .cv-container h2 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 0.5rem;
-        }
-        .cv-container ul {
-            padding-left: 20px;
-        }
-        .cv-container a { 
-            color: #007acc; 
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }} | Tarun Himanshu Patel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
+
+  <style>
+    :root { color-scheme: light dark; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #0b0b0b; /* dark backdrop under Vanta */
+    }
+
+    /* Vanta background layer */
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;              /* behind content */
+      pointer-events: none;    /* keep UI clickable */
+    }
+
+    /* Content above Vanta */
+    .cv-container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 48px auto;
+      padding: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      color: #222;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .cv-container h1,
+    .cv-container h2,
+    .cv-container h3 { color: #222; }
+
+    .cv-container h1 {
+      margin: 0 0 0.75rem 0;
+      font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+    }
+
+    .cv-container h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #007acc;
+      font-weight: 700;
+    }
+
+    .cv-container h3 { margin: 1rem 0 0.25rem; font-weight: 600; }
+
+    .cv-container p { line-height: 1.6; margin: 0.4rem 0 0.8rem; }
+
+    .cv-container ul { padding-left: 1.2rem; margin: 0.5rem 0 1rem; }
+    .cv-container li { margin: 0.3rem 0; }
+
+    .cv-container a { color: #007acc; text-decoration: none; }
+    .cv-container a:hover { text-decoration: underline; }
+
+    /* Make navbar sit above Vanta if present */
+    nav { position: sticky; top: 0; z-index: 2; }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    /* Print-friendly CV */
+    @media print {
+      /* Remove Vanta + shadows for crisp print */
+      #vanta-bg { display: none !important; }
+      body { background: #fff !important; }
+      .cv-container {
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #000 !important;
+        margin: 0 !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+      }
+      nav, .print-hide { display: none !important; }
+      a { color: #000 !important; text-decoration: none; }
+      @page { margin: 12mm; }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="vanta-bg"></div>
-    
-    {% include navbar.html %}
-    
-    <div class="cv-container">
-        {{ content }}
-    </div>
+  <!-- Animated background -->
+  <div id="vanta-bg" aria-hidden="true"></div>
 
-    <!-- Vanta.js scripts -->
-    <script src="three.r134.min.js"></script>
-    <script src="vanta.net.min.js"></script>
-    <script>
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00
-    })
-    </script>
+  {% include navbar.html %}
+
+  <div class="cv-container">
+    {{ content }}
+  </div>
+
+  <!-- three.js before Vanta -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.VANTA && document.getElementById('vanta-bg')) {
+        if (window.__vanta) { try { window.__vanta.destroy(); } catch(e){} }
+        window.__vanta = VANTA.NET({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          // Optional theming for CV page:
+           color: 0x03a9f4,
+           backgroundColor: 0x0b0b0b,
+           points: 12.0,
+           maxDistance: 20.0,
+           spacing: 16.0
+        });
+      }
+    });
+
+    window.addEventListener('beforeunload', function () {
+      if (window.__vanta) { try { window.__vanta.destroy(); } catch(e){} }
+    });
+  </script>
 </body>
 </html>
