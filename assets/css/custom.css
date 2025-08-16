@@ -1,68 +1,44 @@
-/* General styles for all pages */
-body, html {
+/* ---------- Base & resets ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-/* Default page styling */
 body {
   color: #333;
-  background: #fff;
+  background: #fff; /* default light pages */
 }
 
-/* Home page specific styling */
+/* Wrapper to keep content above Vanta */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Home (Vanta) ---------- */
 .home-body {
-  color: white;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  height: 100vh;
+  /* Let Vanta show through */
+  background: transparent;
+  min-height: 100svh;      /* better mobile viewport behavior */
   overflow-x: hidden;
   position: relative;
 }
 
-/* Vanta background container */
+/* Vanta background layer */
 #vanta-bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;              /* behind content, above body */
+  pointer-events: none;    /* keep UI clickable */
 }
 
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 3rem;
-}
-
-.portfolio-card {
-  background-color: #111;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.7);
-  transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-10px);
-}
-
-.portfolio-card a {
-  color: #c5924f;
-  text-decoration: none;
-}
-
-.portfolio-card a:hover {
-  text-decoration: underline;
-}
-
-
-
-/* Default navigation for all pages */
+/* ---------- Navigation ---------- */
 nav {
   background: transparent;
   padding: 1rem;
@@ -71,25 +47,26 @@ nav {
   gap: 2rem;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 2;              /* above Vanta and content */
   box-shadow: none;
 }
 
+/* Default (light pages) */
 nav a {
-  color: #fffefe;
-  font-size: 1.2rem;
+  color: #222;
+  font-size: 1.1rem;
   text-decoration: none;
-  padding: 0.8rem 2rem;
-  border: 2px solid rgba(51, 51, 51, 0.6);
+  padding: 0.7rem 1.4rem;
+  border: 2px solid rgba(51, 51, 51, 0.2);
   border-radius: 8px;
   background-color: transparent;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   font-weight: 500;
   font-family: 'Orbitron', sans-serif;
 }
 
 nav a:hover {
-  background-color: rgba(51, 51, 51, 0.1);
+  background-color: rgba(51, 51, 51, 0.06);
   border-color: #ffaa00;
   color: #ffaa00;
   transform: translateY(-2px);
@@ -101,47 +78,23 @@ nav a.active {
   color: #ffaa00;
 }
 
-.project-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 2rem;
-  align-items: center;
+/* Dark override for home (Vanta) */
+.home-body nav a {
+  color: #fffefe;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.home-body nav a:hover,
+.home-body nav a.active {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #ffaa00;
+  color: #ffaa00;
 }
 
-.project-card {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-left: 6px solid #03a9f4;
-  border-radius: 6px;
-  padding: 1rem 1.5rem;
-  width: 90%;
-  max-width: 800px;
-  color: #fff;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.project-card a {
-  color: #fff;
-  font-size: 1.25rem;
-  text-decoration: none;
-  display: block;
-}
-
-.project-card:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  transform: translateY(-4px);
-}
-
-.project-card a:hover {
-  color: #ddd;
-}
-
+/* ---------- Hero ---------- */
 .hero-wrapper {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,12 +104,10 @@ nav a.active {
   background: transparent;
 }
 
-.hero-center {
-  max-width: 900px;
-}
+.hero-center { max-width: 900px; }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
   color: #ffffff;
   text-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
@@ -164,7 +115,7 @@ nav a.active {
 }
 
 .hero-description {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
   margin-bottom: 3rem;
   opacity: 0.9;
   max-width: 700px;
@@ -183,20 +134,19 @@ nav a.active {
 }
 
 .hero-btn {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: 'Orbitron', sans-serif;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.8rem 2rem;
-  border: 2px solid rgba(51, 51, 51, 0.6);
+  padding: 0.8rem 1.6rem;
+  border: 2px solid rgba(255, 255, 255, 0.35);
   border-radius: 8px;
   background-color: transparent;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   font-weight: 500;
 }
-
 .hero-btn:hover {
-  background-color: rgba(51, 51, 51, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   border-color: #ffaa00;
   color: #ffaa00;
   transform: translateY(-2px);
@@ -204,7 +154,7 @@ nav a.active {
 
 .hero-link-description {
   font-size: 1rem;
-  opacity: 0.85;
+  opacity: 0.9;
   color: #f0f0f0;
   max-width: 600px;
   line-height: 1.8;
@@ -213,12 +163,10 @@ nav a.active {
   margin-left: auto;
   margin-right: auto;
 }
-
 .hero-link-description p {
   margin: 0.8rem 0;
   padding: 0.5rem 0;
 }
-
 .hero-link-description strong {
   display: inline-block;
   min-width: 85px;
@@ -226,14 +174,73 @@ nav a.active {
   font-weight: 600;
 }
 
+/* ---------- Portfolio ---------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+}
 
+.portfolio-card {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.portfolio-card:hover {
+  transform: translateY(-10px);
+}
+.portfolio-card a {
+  color: #d3a56b; /* slightly lighter for better contrast on #111 */
+  text-decoration: none;
+}
+.portfolio-card a:hover {
+  text-decoration: underline;
+}
+
+/* Project stack list */
+.project-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+.project-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-left: 6px solid #03a9f4;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  width: 90%;
+  max-width: 800px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.project-card a {
+  color: #fff;
+  font-size: 1.15rem;
+  text-decoration: none;
+  display: block;
+}
+.project-card:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
+}
+.project-card a:hover {
+  color: #ddd;
+}
+
+/* ---------- Motion & Animations ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Optional (defined if you want to use it) */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
