@@ -3,7 +3,6 @@ title: "IoT Access Control System with Raspberry Pi & Flipper Zero"
 excerpt: "Built a smart access control system integrating RFID authentication, Raspberry Pi management, and Flipper Zero testing."
 collection: portfolio
 layout: portfolio
-vanta: true
 
 ---
 
