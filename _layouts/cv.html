@@ -10,15 +10,24 @@
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
   <style>
-    /* ---------- Baseline ---------- */
+    /* ---------- Force dark page bg regardless of global body styles ---------- */
     html, body { height: 100%; }
-    body {
+    body.dark-body {
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: #000;          /* dark backdrop under Vanta */
+      background: #000 !important;  /* overrides body { background:#fff } from custom.css */
       color: #eee;
       overflow-x: hidden;
+    }
+
+    /* Make navbar readable on dark pages */
+    .dark-body nav a { color:#fffefe; border-color:rgba(255,255,255,.35); }
+    .dark-body nav a:hover,
+    .dark-body nav a.active {
+      background-color: rgba(255,255,255,0.08);
+      border-color:#ffaa00;
+      color:#ffaa00;
     }
 
     /* ---------- Vanta layer ---------- */
@@ -98,7 +107,7 @@
   </style>
 </head>
 
-<body>
+<body class="dark-body">
   <!-- Animated background -->
   <div id="vanta-bg" aria-hidden="true"></div>
 

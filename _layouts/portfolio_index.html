@@ -8,16 +8,16 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Outfit:wght@300;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Site CSS (keeps your existing classes like .project-stack/.project-card) -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
   <style>
-    /* Page baseline */
+    /* Force dark background even if custom.css sets body to white */
     html, body { height: 100%; }
-    body {
+    body.dark-body {
       margin: 0;
       padding: 0;
-      background: #000;         /* dark fallback while Vanta boots */
+      background: #000 !important; /* beats default body { background:#fff } */
       color: #eee;
       font-family: 'Roboto', sans-serif;
       overflow-x: hidden;
@@ -33,15 +33,22 @@
       pointer-events: none;
     }
 
-    /* Keep navbar clickable above Vanta */
+    /* Keep navbar readable and above Vanta */
     nav { position: sticky; top: 0; z-index: 2; }
+    .dark-body nav a { color:#fffefe; border-color:rgba(255,255,255,.35); }
+    .dark-body nav a:hover,
+    .dark-body nav a.active {
+      background-color: rgba(255,255,255,0.08);
+      border-color:#ffaa00;
+      color:#ffaa00;
+    }
 
     /* Page container */
     .container {
       position: relative;
       z-index: 1;
       max-width: 900px;
-      margin: 4rem auto;
+      margin: 3rem auto 4rem;
       padding: 0 1.25rem;
       text-align: center;
     }
@@ -56,29 +63,19 @@
       animation: fadeInDown 0.8s ease-out both;
     }
 
-    /* Optional legacy list styles (kept for compatibility) */
-    .portfolio-list { list-style: none; padding: 0; margin: 0; }
-    .portfolio-list li { margin: 2rem 0; }
-    .portfolio-list a {
-      font-size: 2rem;
-      color: #eee;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .portfolio-list a:hover { color: #575757; }
+    /* Uses your .project-stack / .project-card styles from custom.css */
 
     /* Motion safety */
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
     }
-
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body>
+<body class="dark-body">
 
   <!-- Animated background -->
   <div id="vanta-bg" aria-hidden="true"></div>
@@ -88,17 +85,24 @@
   <div class="container">
     <h1>Portfolio</h1>
 
-    <!-- Uses your existing card style from custom.css -->
     <div class="project-stack">
       {% for project in site.portfolio %}
         <div class="project-card">
           <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+          {% if project.excerpt %}
+            <p class="project-excerpt">{{ project.excerpt }}</p>
+          {% endif %}
+          {% if project.tags %}
+            <ul class="project-tags">
+              {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
+            </ul>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
   </div>
 
-  <!-- Scripts: three.js before Vanta; CDN + bfcache-safe init -->
+  <!-- Scripts: three.js before Vanta; bfcache-safe init -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
   <script>
@@ -116,8 +120,8 @@
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight: 200,
+          minWidth: 200,
           scale: 1.0,
           scaleMobile: 1.0,
           color1: 0xd2d2d2,
@@ -132,7 +136,7 @@
         initVanta();
       }
 
-      // Re-init when returning via back/forward cache (fixes “black → white” issue)
+      // Re-init on back/forward (bfcache)
       window.addEventListener('pageshow', function (e) {
         if (e.persisted) initVanta();
       });
