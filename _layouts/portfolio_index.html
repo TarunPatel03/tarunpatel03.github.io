@@ -17,7 +17,7 @@
     body.dark-body {
       margin: 0;
       padding: 0;
-      background: #000 !important; /* beats default body { background:#fff } */
+      background: #000 !important; /* overrides default light bg */
       color: #eee;
       font-family: 'Roboto', sans-serif;
       overflow-x: hidden;
@@ -115,7 +115,8 @@
         var mount = document.getElementById('vanta-bg');
         if (!window.VANTA || !mount) return;
         destroyVanta();
-        window.__vanta = VANTA.NET({
+        // ✅ Use CELLS (blue “liquid”) instead of NET; keep your colors
+        window.__vanta = VANTA.CELLS({
           el: "#vanta-bg",
           mouseControls: true,
           touchControls: true,
