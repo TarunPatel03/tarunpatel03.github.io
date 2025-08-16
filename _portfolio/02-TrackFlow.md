@@ -2,7 +2,9 @@
 title: "TrackFlow – Order & Inventory Management Dashboard"
 excerpt: "Built a real-time order and inventory tracking system using React and Supabase with role-based access control."
 collection: portfolio
-layout: portfolio
+layout: default
+vanta: true
+
 ---
 
 

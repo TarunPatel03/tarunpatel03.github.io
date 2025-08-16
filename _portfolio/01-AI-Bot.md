@@ -2,7 +2,9 @@
 title: "Trading Bot Development"
 excerpt: "Used python and ML to train AI model"
 collection: portfolio
-layout: portfolio
+layout: default
+vanta: true
+
 ---
 
 

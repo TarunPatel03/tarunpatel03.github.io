@@ -2,7 +2,9 @@
 title: "Market Data Visualization & Analysis"
 excerpt: "Built a Python-based analytics notebook to visualize, analyze, and model financial market trends."
 collection: portfolio
-layout: portfolio
+layout: default
+vanta: true
+
 ---
 
 ## Problem / Motivation
