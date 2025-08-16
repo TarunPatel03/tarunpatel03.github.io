@@ -1,3 +1,4 @@
+---
 title: "Market Data Visualization & Analysis"
 excerpt: "Built a Python-based analytics notebook to visualize, analyze, and model financial market trends."
 collection: portfolio
