@@ -2,7 +2,7 @@
 title: "Password Strength Auditor with Raspberry Pi & Flipper Zero"
 excerpt: "Developed a password auditing tool that checks credential strength against breach databases and performs offline cracking simulations."
 collection: portfolio
-layout: default
+layout: portfolio
 vanta: true
 
 ---
