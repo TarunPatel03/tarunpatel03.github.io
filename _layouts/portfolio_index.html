@@ -1,27 +1,29 @@
 ---
 layout: default
 title: Portfolio
-vanta: false   # set true if you want the animated bg here
+permalink: /portfolio/
+vanta: false
+dark: true
 ---
 
-<div class="container portfolio-page">
-  <h1>Portfolio</h1>
+<h1>Portfolio</h1>
 
-  <div class="project-stack">
-    {% for project in site.portfolio %}
-      <article class="project-card">
-        <a class="project-title" href="{{ project.url | relative_url }}">{{ project.title }}</a>
-        {% if project.excerpt %}
-          <p class="project-excerpt">{{ project.excerpt }}</p>
-        {% endif %}
-        {% if project.tags %}
-          <ul class="project-tags">
-            {% for tag in project.tags %}
-              <li>{{ tag }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </article>
-    {% endfor %}
-  </div>
+<div class="project-stack">
+  {% for project in site.portfolio %}
+    <article class="project-card">
+      <a class="project-title" href="{{ project.url | relative_url }}">{{ project.title }}</a>
+
+      {% if project.excerpt %}
+        <p class="project-excerpt">{{ project.excerpt }}</p>
+      {% endif %}
+
+      {% if project.tags %}
+        <ul class="project-tags">
+          {% for tag in project.tags %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+  {% endfor %}
 </div>

@@ -1,83 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  <meta charset="UTF-8" />
+  <title>{{ page.title }} | Tarun Himanshu Patel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts & site CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
   <style>
+    /* Full-page dark backdrop so the portfolio card pops */
+    html, body { height: 100%; }
+    body { margin: 0; background: #000; color: #eee; font-family: 'Roboto', sans-serif; }
 
+    /* Vanta layer behind everything */
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none; /* keep UI clickable */
+    }
+
+    /* Content card */
     .container_portfolio {
       position: relative;
       z-index: 1;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 4rem auto;
-      padding: 2rem;
+      padding: 2rem 2.25rem;
       background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       text-align: left;
+      color: #111;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
-      color: #000000;
+    .container_portfolio h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 0 0 1.25rem;
+      color: #000;
+      font-weight: 700;
     }
-    h2 {
-      color: #161616;
+    .container_portfolio h2 { color: #161616; margin: 2rem 0 0.75rem; }
+    .container_portfolio h3 { color: #1d1d1d; margin: 1.25rem 0 0.5rem; }
+
+    .container_portfolio p,
+    .container_portfolio ul,
+    .container_portfolio li {
+      font-size: 1.05rem;
+      line-height: 1.8rem;
+      color: #111;
+      margin-bottom: 0.8rem;
     }
 
+    .container_portfolio strong { color: #5e60ce; }
 
-    p, ul, li {
-      font-size: 1.3rem;
-      line-height: 2rem;
-      color: #000000;
-      margin-bottom: 1rem;
+    /* fix: target links inside the portfolio container, not a generic .container */
+    .container_portfolio a { color: #c5924f; text-decoration: none; }
+    .container_portfolio a:hover { text-decoration: underline; }
+
+    /* Make navbar float above Vanta as well */
+    nav { position: sticky; top: 0; z-index: 2; }
+
+    @media (max-width: 640px) {
+      .container_portfolio { margin: 2.5rem auto; padding: 1.25rem 1rem; }
     }
 
-    strong {
-      color: #5e60ce;
+    /* Print-friendly: remove Vanta/backdrop, flatten the card */
+    @media print {
+      #vanta-bg { display: none !important; }
+      body { background: #fff !important; }
+      nav { display: none !important; }
+      .container_portfolio {
+        box-shadow: none !important;
+        background: #fff !important;
+        margin: 0 !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        color: #000 !important;
+      }
+      a { color: #000 !important; text-decoration: none; }
+      @page { margin: 12mm; }
     }
-    .container a {
-      color: #c5924f;
-      text-decoration: none;
-    }
-
-    .container a:hover {
-      text-decoration: underline;
-    }
-
   </style>
 </head>
 
 <body>
+  <!-- Animated background (optional visual flair) -->
+  <div id="vanta-bg" aria-hidden="true"></div>
 
-<div id="vanta-bg"></div>
+  {% include navbar.html %}
 
-{% include navbar.html %}
+  <main class="container_portfolio">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </main>
 
-<div class="container_portfolio">
-  <h1>{{ page.title }}</h1>
-  {{ content }}
-</div>
+  <!-- three.js before Vanta; use CDNs and safe init with bfcache support -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    (function () {
+      function destroyVanta() {
+        if (window.__vanta) { try { window.__vanta.destroy(); } catch (e) {} }
+        window.__vanta = null;
+      }
+      function initVanta() {
+        var mount = document.getElementById('vanta-bg');
+        if (!window.VANTA || !mount) return;
+        destroyVanta();
+        window.__vanta = VANTA.NET({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          scale: 1.0,
+          scaleMobile: 1.0
+          // Optional tuning:
+          // color: 0x03a9f4,
+          // backgroundColor: 0x000000,
+          // points: 12.0, maxDistance: 20.0, spacing: 16.0
+        });
+      }
 
-<script src="three.r134.min.js"></script>
-<script src="vanta.net.min.js"></script>
-<script>
-VANTA.NET({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00
-})
-</script>
+      // Initial load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVanta);
+      } else {
+        initVanta();
+      }
 
+      // Re-init when returning via back/forward cache
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) initVanta();
+      });
+
+      // Clean up for bfcache
+      window.addEventListener('pagehide', destroyVanta);
+    })();
+  </script>
 </body>
 </html>
