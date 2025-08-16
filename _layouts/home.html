@@ -1,56 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ page.title }} | Tarun Himanshu Patel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
-  <style>
-    /* Make the Vanta canvas sit behind everything */
-    #vanta-bg {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-    .page-wrap { position: relative; z-index: 1; }
-    html, body { height: 100%; }
-  </style>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | Michael Reed Basangan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 </head>
 <body class="home-body">
-  <!-- Vanta attaches here -->
-  <div id="vanta-bg"></div>
-
-  <!-- Your page content -->
-  <div class="page-wrap">
-    {{ content }}
-  </div>
+  {{ content }}
 
   <!-- Vanta Background -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof VANTA !== 'undefined' && document.getElementById('vanta-bg')) {
-        // prevent double-init if layout is re-used
-        if (window.__vanta) { try { window.__vanta.destroy(); } catch (e) {} }
-        window.__vanta = VANTA.NET({
+    // Wait for scripts to load before initializing
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof VANTA !== 'undefined') {
+        VANTA.CELLS({
           el: "#vanta-bg",
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          // optional tuning:
-          // color: 0x00ffff,
-          // backgroundColor: 0x000000,
-          // points: 10.0,
-          // maxDistance: 20.0,
-          // spacing: 15.0
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          color1: 0xd2d2d2,
+          color2: 0x0387f2
         });
       }
     });

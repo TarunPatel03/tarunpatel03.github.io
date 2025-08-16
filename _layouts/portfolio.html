@@ -8,33 +8,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000; /* fallback before Vanta loads */
-      color: #000;
-      font-family: 'Roboto', sans-serif;
-      overflow-x: hidden;
-    }
 
-    /* Vanta background canvas */
-    #vanta-bg {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Navbar above background */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-    }
-
-    /* White card container */
     .container_portfolio {
       position: relative;
       z-index: 1;
@@ -42,67 +16,69 @@
       margin: 4rem auto;
       padding: 2rem;
       background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
       text-align: left;
-      animation: fadeInUp 0.8s ease-out both;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #000;
-      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      color: #000000;
+    }
+    h2 {
+      color: #161616;
     }
 
-    h2 { color: #111; }
+
     p, ul, li {
-      font-size: 1.15rem;
-      line-height: 1.8rem;
-      color: #222;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: #000000;
       margin-bottom: 1rem;
     }
 
-    strong { color: #0056b3; }
-    a { color: #c5924f; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    strong {
+      color: #5e60ce;
     }
+    .container a {
+      color: #c5924f;
+      text-decoration: none;
+    }
+
+    .container a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div id="vanta-bg"></div>
+<div id="vanta-bg"></div>
 
-  {% include navbar.html %}
+{% include navbar.html %}
 
-  <div class="container_portfolio">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
-  </div>
+<div class="container_portfolio">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+</div>
 
-  <!-- Scripts -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
-  <script>
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color1: 0xd2d2d2,  // light grey/blue tone
-      color2: 0x0387f2   // electric blue
-    })
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+<script>
+VANTA.CELLS({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  color1: 0xd2d2d2,
+  color2: 0x0387f2
+})
+</script>
 
 </body>
 </html>
