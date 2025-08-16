@@ -1,29 +1,146 @@
----
-layout: default
-title: Portfolio
-permalink: /portfolio/
-vanta: false
-dark: true
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }} | Tarun Himanshu Patel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<h1>Portfolio</h1>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Outfit:wght@300;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
 
-<div class="project-stack">
-  {% for project in site.portfolio %}
-    <article class="project-card">
-      <a class="project-title" href="{{ project.url | relative_url }}">{{ project.title }}</a>
+  <!-- Site CSS (keeps your existing classes like .project-stack/.project-card) -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
-      {% if project.excerpt %}
-        <p class="project-excerpt">{{ project.excerpt }}</p>
-      {% endif %}
+  <style>
+    /* Page baseline */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;         /* dark fallback while Vanta boots */
+      color: #eee;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
 
-      {% if project.tags %}
-        <ul class="project-tags">
-          {% for tag in project.tags %}
-            <li>{{ tag }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
-  {% endfor %}
-</div>
+    /* Vanta canvas below content, non-blocking */
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Keep navbar clickable above Vanta */
+    nav { position: sticky; top: 0; z-index: 2; }
+
+    /* Page container */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 1.25rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #ffffff;
+      letter-spacing: 1px;
+      margin: 0 0 1.25rem;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      animation: fadeInDown 0.8s ease-out both;
+    }
+
+    /* Optional legacy list styles (kept for compatibility) */
+    .portfolio-list { list-style: none; padding: 0; margin: 0; }
+    .portfolio-list li { margin: 2rem 0; }
+    .portfolio-list a {
+      font-size: 2rem;
+      color: #eee;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .portfolio-list a:hover { color: #575757; }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div id="vanta-bg" aria-hidden="true"></div>
+
+  {% include navbar.html %}
+
+  <div class="container">
+    <h1>Portfolio</h1>
+
+    <!-- Uses your existing card style from custom.css -->
+    <div class="project-stack">
+      {% for project in site.portfolio %}
+        <div class="project-card">
+          <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Scripts: three.js before Vanta; CDN + bfcache-safe init -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+  <script>
+    (function () {
+      function destroyVanta() {
+        if (window.__vanta) { try { window.__vanta.destroy(); } catch (e) {} }
+        window.__vanta = null;
+      }
+      function initVanta() {
+        var mount = document.getElementById('vanta-bg');
+        if (!window.VANTA || !mount) return;
+        destroyVanta();
+        window.__vanta = VANTA.CELLS({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color1: 0xd2d2d2,
+          color2: 0x0387f2
+        });
+      }
+
+      // Initial load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVanta);
+      } else {
+        initVanta();
+      }
+
+      // Re-init when returning via back/forward cache (fixes “black → white” issue)
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) initVanta();
+      });
+
+      // Clean up for bfcache
+      window.addEventListener('pagehide', destroyVanta);
+    })();
+  </script>
+
+</body>
+</html>
