@@ -46,11 +46,3 @@ Team Collaboration, Project Management, Remote Work, Public Speaking
 - **Smart Watering System (ESP32, C++) — In Progress** — Moisture-based irrigation system with Wi-Fi telemetry.
 - **CAN Bus Communication Framework (AVR / C) — In Progress** — Bit-level CAN protocol parser with error handling and real-time messaging.
 
-
-
-   <!-- ## Experience
-   <!--- **Committee Member, UTS Cyber Security Society** (Nov 2024–Present) — Social media design, event outreach, and cybersecurity content strategy.
-   <!--- **PASS Leader - Mathematics, James Cook University** (Feb 2023–Feb 2024) — Led study sessions for 20 students, teaching problem-solving and reasoning.
-   <!--- **Vice President, UTS Surfing Club** (Oct 2024–Present) — Managed club events, logistics, vendors, and safety protocols for large gatherings.
-   <!--- **Treasurer, The FINstitute, James Cook University** (Feb 2023–Feb 2024) — Managed finances, secured grants, and coordinated budgets.
-   <!--- **Machine Technician, U.S. Coast Guard** (Mar 2018–Apr 2022) — Led team maintenance projects, completed 80+ SAR missions, and delivered vessel support. 
