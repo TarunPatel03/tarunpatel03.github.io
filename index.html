@@ -2,6 +2,94 @@
 layout: home
 title: Home
 ---
+ <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        #vanta-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            text-align: center;
+            color: #fff;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #aaa;
+        }
+        .socials a {
+            margin: 0 20px;
+            font-size: 2.5rem;
+            color: #c5924f;
+            transition: 0.3s;
+        }
+        .socials a:hover {
+            color: #ffaa00;
+        }
+        .email {
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+        .email a {
+            color: #71cfff;
+            text-decoration: none;
+        }
+        nav {
+            background: transparent;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            box-shadow: none;
+        }
+
+        nav a {
+            color: #fffefe;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 2px solid rgba(51, 51, 51, 0.6);
+            border-radius: 8px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        nav a:hover {
+            background-color: rgba(51, 51, 51, 0.1);
+            border-color: #ffaa00;
+            color: #ffaa00;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background-color: rgba(255, 170, 0, 0.1);
+            border-color: #ffaa00;
+            color: #ffaa00;
+        }
+    </style>
 
 <div id="vanta-bg"></div>
 
@@ -19,3 +107,23 @@ title: Home
    
   </div>
 </div>
+
+<body>
+<div id="vanta-bg"></div>
+
+<div class="hero-wrapper">
+  <div class="hero-center">
+    <h1 class="hero-title">Tarun Himanshu Patel</h1>
+    <p class="hero-description">Welcome to my digital portfolio. Please have a look around.</p>
+
+    <div class="hero-buttons">
+      <a href="/portfolio/" class="hero-btn">Portfolio</a>
+      <a href="/cv/" class="hero-btn">CV</a>
+      <a href="/socials/" class="hero-btn">Connect</a>
+    </div>
+
+   
+  </div>
+</div>
+
+</body>
