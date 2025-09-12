@@ -26,7 +26,7 @@ It includes my **portfolio projects**, **CV**, and ways to connect with me profe
 - **Frontend:** React, Vite  
 - **Styling:** Tailwind CSS  
 - **Backend/Integration (planned):** Supabase  
-- **Deployment:** Vercel  
+- **Deployment:** Github Pages  
 
 ---
 ## 💡 What I Do
