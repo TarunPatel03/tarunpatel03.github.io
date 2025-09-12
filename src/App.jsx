@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import CV from "./pages/CV.jsx";
 import Connect from "./pages/Connect.jsx";
+import Project from "./pages/Project.jsx"; // 👈 add this
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/project/:slug" element={<Project />} /> {/* 👈 */}
         <Route path="/cv" element={<CV />} />
         <Route path="/connect" element={<Connect />} />
       </Routes>
