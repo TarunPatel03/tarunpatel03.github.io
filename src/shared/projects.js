@@ -13,7 +13,7 @@ const projects = [
       "Pandas",
     ],
     status: "Lab Project",
-    image: "./public/images/vulscanner.png",
+    image: "./images/vulscanner.png",
     highlights: [
       "Nmap SYN scans with service/version detection.",
       "Mapped CPEs to CVEs & CVSS v3.1 scores.",
@@ -38,7 +38,7 @@ const projects = [
       "Vite",
     ],
     status: "MVP",
-    image: "./public/images/trackflow.png",
+    image: "./images/trackflow.png",
     highlights: [
       "Role-based authentication with Supabase.",
       "Dynamic tables for orders, inventory, analytics.",
