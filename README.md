@@ -1,12 +1,38 @@
-# React + Vite
+# 🌐 Tarun Patel – Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/) 
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/) 
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)  
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)  
 
-Currently, two official plugins are available:
+This is my personal portfolio website showcasing my background as a **Software & Mechatronics Engineer** from **UTS** with hands-on experience in **cybersecurity, embedded systems, IoT, and full-stack software development**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It includes my **portfolio projects**, **CV**, and ways to connect with me professionally.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🧑‍💻 **About Me** – Career summary & introduction  
+- 📂 **Portfolio** – Selected engineering & software projects  
+- 📄 **CV Download** – Quick access to résumé  
+- 📬 **Contact** – Easy connection options  
+- 📱 **Responsive Design** – Works on desktop & mobile  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Vite  
+- **Styling:** Tailwind CSS  
+- **Backend/Integration (planned):** Supabase  
+- **Deployment:** Vercel  
+
+---
+## 💡 What I Do
+
+- **Design** – Product design, UI/UX, embedded systems, circuit design, prototyping, scalable solutions  
+- **Develop** – React, Supabase, Node.js, Python, C/C++, Java, APIs, AWS/GCP cloud, SQL & NoSQL databases, DevOps automation  
+- **Write** – Documentation, technical proposals, research papers, reflective journals, case studies, blog posts, project roadmaps  
+- **Promote** – SEO, growth experiments, digital marketing, community building, pitch decks, professional portfolio development  
+

@@ -16,9 +16,9 @@ export default function Connect() {
           <h3 className="font-bold">Resume (PDF)</h3>
           <p className="text-white/70 text-sm">Latest version</p>
         </a>
-        <a className="rounded-xl border border-white/10 p-5 bg-white/[0.02]" href="mailto:tarun.h.patel@student.uts.edu.au">
+        <a className="rounded-xl border border-white/10 p-5 bg-white/[0.02]" href="mailto:tppatel003@gmail.com">
           <h3 className="font-bold">Email</h3>
-          <p className="text-white/70 text-sm">tarun.h.patel@student.uts.edu.au</p>
+          <p className="text-white/70 text-sm">tppatel003@gmail.com</p>
         </a>
       </div>
     </Section>

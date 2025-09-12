@@ -15,7 +15,7 @@ export default function CV() {
         </div>
         <div className="rounded-xl border border-white/10 p-5 bg-white/[0.02]">
           <h3 className="font-bold">Skills</h3>
-          <p className="text-white/70 text-sm mt-1">React, Tailwind, Supabase, Node; Python; C/C++; Git; Linux; Networking basics.</p>
+          <p className="text-white/70 text-sm mt-1">React, Tailwind, Supabase, Node; Python; C/C++; Git; Linux; Networking.</p>
         </div>
       </div>
     </Section>
