@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
-import Home from "./pages/Home.jsx";
-import Portfolio from "./pages/Portfolio.jsx";
-import CV from "./pages/CV.jsx";
-import Connect from "./pages/Connect.jsx";
-import Project from "./pages/Project.jsx"; // 👈 add this
+import Home from "./pages/home.jsx";
+import Portfolio from "./pages/portfolio.jsx";
+import CV from "./pages/cv.jsx";
+import Connect from "./pages/connect.jsx";
+import Project from "./pages/project.jsx"; // 👈 add this
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
