@@ -13,10 +13,10 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/project/:slug" element={<Project />} /> {/* 👈 */}
-        <Route path="/cv" element={<CV />} />
-        <Route path="/connect" element={<Connect />} />
+        <Route path="/Portfolio" element={<Portfolio />} />
+        <Route path="/Project/:slug" element={<Project />} /> {/* 👈 */}
+        <Route path="/CV" element={<CV />} />
+        <Route path="/Connect" element={<Connect />} />
       </Routes>
       <Footer />
     </div>
