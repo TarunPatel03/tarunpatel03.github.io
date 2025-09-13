@@ -13,7 +13,7 @@ const projects = [
       "Pandas",
     ],
     status: "Lab Project",
-    image: "./images/vulscanner.png",
+    image: "/images/vulscanner.png",
     highlights: [
       "Nmap SYN scans with service/version detection.",
       "Mapped CPEs to CVEs & CVSS v3.1 scores.",
@@ -38,7 +38,7 @@ const projects = [
       "Vite",
     ],
     status: "MVP",
-    image: "./images/trackflow.png",
+    image: "/images/trackflow.png",
     highlights: [
       "Role-based authentication with Supabase.",
       "Dynamic tables for orders, inventory, analytics.",
@@ -48,6 +48,32 @@ const projects = [
     repo: "https://github.com/TarunPatel03/TrackFlow-2-Attempt",
     demo: null,
   },
+  {
+    slug: "password-auditor",
+    title: "Password Strength Auditor",
+    description:
+      "Tool that audits password lists against breach DBs, calculates entropy, simulates crack times, and generates PDF reports.",
+    tech: [
+      "Python",
+      "Raspberry Pi",
+      "Flipper Zero",
+      "HIBP API",
+      "Argon2",
+      "SHA256",
+      "ReportLab",
+    ],
+    status: "Lab Project",
+    image: "/images/password-auditor.png",
+    highlights: [
+      "Queries HaveIBeenPwned for breached passwords.",
+      "Entropy scoring + hash crack time estimation.",
+      "Portable dashboard running on Raspberry Pi.",
+      "Flipper Zero HID simulations for physical attack testing.",
+    ],
+    repo: null,
+    demo: null,
+  },
+
   {
     slug: "ai-trading-bot",
     title: "Trading Bot Development",
@@ -121,32 +147,7 @@ const projects = [
     repo: null,
     demo: null,
   },
-  {
-    slug: "password-auditor",
-    title: "Password Strength Auditor",
-    description:
-      "Tool that audits password lists against breach DBs, calculates entropy, simulates crack times, and generates PDF reports.",
-    tech: [
-      "Python",
-      "Raspberry Pi",
-      "Flipper Zero",
-      "HIBP API",
-      "Argon2",
-      "SHA256",
-      "ReportLab",
-    ],
-    status: "Lab Project",
-    image: "/images/password-auditor.png",
-    highlights: [
-      "Queries HaveIBeenPwned for breached passwords.",
-      "Entropy scoring + hash crack time estimation.",
-      "Portable dashboard running on Raspberry Pi.",
-      "Flipper Zero HID simulations for physical attack testing.",
-    ],
-    repo: null,
-    demo: null,
-  },
-
+  
 ];
 
 export default projects;
