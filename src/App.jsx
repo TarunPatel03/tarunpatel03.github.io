@@ -4,7 +4,7 @@ import Home from "./pages/Home.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import CV from "./pages/CV.jsx";
 import Connect from "./pages/Connect.jsx";
-import Project from "./pages/project.jsx"; // 👈 add this
+import Project from "./pages/Project.jsx"; // 👈 add this
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
