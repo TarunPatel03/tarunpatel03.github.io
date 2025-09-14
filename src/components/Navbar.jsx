@@ -30,9 +30,7 @@ export default function Navbar() {
             <li key={to}>
               <NavLink
                 to={to}
-                className={({ isActive }) =>
-                  `${linkBase} ${isActive ? active : idle}`
-                }
+                className={({ isActive }) => `${linkBase} ${isActive ? active : idle}`}
               >
                 {label}
               </NavLink>
@@ -48,18 +46,44 @@ export default function Navbar() {
           Email Me
         </a>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle – MENU [≡] */}
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpen(v => !v)}
+          onClick={() => setOpen((v) => !v)}
           className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
         >
-          {/* 3-bar icon that morphs to X */}
-          <span className={`block h-0.5 w-6 bg-current transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-          <span className={`block h-0.5 w-6 bg-current my-1 transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-0.5 w-6 bg-current transition-transform ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+          <span
+            className={
+              "mr-2 font-extrabold tracking-tight text-base transition-transform duration-300" +
+              (open ? " rotate-[-8deg]" : "")
+            }
+          >
+            MENU
+          </span>
+
+          {/* ≡ (burger that morphs to X) */}
+          <span className="relative h-4 w-6" aria-hidden="true">
+            <span
+              className={
+                "absolute left-0 top-0 h-0.5 w-6 bg-current transition-transform duration-300" +
+                (open ? " translate-y-[7px] rotate-45" : "")
+              }
+            />
+            <span
+              className={
+                "absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-6 bg-current transition-opacity duration-200" +
+                (open ? " opacity-0" : " opacity-100")
+              }
+            />
+            <span
+              className={
+                "absolute left-0 bottom-0 h-0.5 w-6 bg-current transition-transform duration-300" +
+                (open ? " -translate-y-[7px] -rotate-45" : "")
+              }
+            />
+          </span>
         </button>
       </nav>
 
@@ -77,9 +101,7 @@ export default function Navbar() {
                 <li key={to}>
                   <NavLink
                     to={to}
-                    className={({ isActive }) =>
-                      `${linkBase} ${isActive ? active : "text-white"}`
-                    }
+                    className={({ isActive }) => `${linkBase} ${isActive ? active : "text-white"}`}
                   >
                     {label}
                   </NavLink>
