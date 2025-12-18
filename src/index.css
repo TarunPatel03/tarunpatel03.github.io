@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Refined elegant light theme with warm tones and sophisticated blue accent */
+@layer base {
+  :root {
+    --background: 252 98% 95%;
+    --foreground: 260 10% 10%;
+    --card: 90 20% 99.5%;
+    --card-foreground: 260 10% 10%;
+    --popover: 90 20% 99.5%;
+    --popover-foreground: 260 10% 10%;
+    --primary: 250 40% 50%;
+    --primary-foreground: 90 20% 99%;
+    --secondary: 90 20% 96%;
+    --secondary-foreground: 260 10% 15%;
+    --muted: 90 20% 94%;
+    --muted-foreground: 260 8% 50%;
+    --accent: 250 35% 55%;
+    --accent-foreground: 90 20% 99%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 250 10% 98%;
+    --border: 90 20% 90%;
+    --input: 90 20% 96%;
+    --ring: 250 40% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  }
+}

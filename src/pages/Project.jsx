@@ -30,8 +30,8 @@ export default function Project() {
 
   const DetailBlock = ({ title, children }) => (
     <div className="mt-8">
-      <h3 className="text-lg font-semibold text-white">{title}</h3>
-      <div className="mt-3 text-white/80">{children}</div>
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+      <div className="mt-3 text-slate-700">{children}</div>
     </div>
   );
 
@@ -40,23 +40,23 @@ export default function Project() {
       <Section eyebrow="Project" title={p.title}>
         {/* Top summary */}
         <div className="flex flex-col gap-2">
-          <p className="text-white/70">{p.description}</p>
+          <p className="text-slate-700">{p.description}</p>
 
-          <div className="flex flex-wrap items-center gap-3 text-xs text-white/60">
+          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600">
             {p.status && (
-              <span className="rounded-md border border-white/15 px-2 py-0.5 bg-white/[0.03]">
+              <span className="rounded-md border border-gray-200 px-2 py-0.5 bg-gray-50">
                 {p.status}
               </span>
             )}
             {p.tech?.length > 0 && (
-              <span className="text-white/50">{p.tech.join(" · ")}</span>
+              <span className="text-slate-500">{p.tech.join(" · ")}</span>
             )}
           </div>
         </div>
 
         {/* Hero image */}
         {p.image && (
-          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+          <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
             <img src={p.image} alt={p.title} className="w-full h-auto" />
           </div>
         )}
@@ -67,7 +67,7 @@ export default function Project() {
             {p.gallery.map((src, i) => (
               <div
                 key={i}
-                className="rounded-xl overflow-hidden border border-white/10 bg-white/[0.02]"
+                className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50"
               >
                 <img
                   src={src}
@@ -140,7 +140,7 @@ export default function Project() {
         )}
 
         {/* Links */}
-        <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
           {p.repo && (
             <a
               href={p.repo}
@@ -154,7 +154,7 @@ export default function Project() {
           {p.demo && (
             <a
               href={p.demo}
-              className="border border-white/20 px-4 py-2 rounded-lg"
+                className="border border-gray-200 px-4 py-2 rounded-lg"
               target="_blank"
               rel="noreferrer"
             >

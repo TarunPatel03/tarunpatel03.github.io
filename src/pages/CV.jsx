@@ -1,269 +1,212 @@
-import Section from "../components/Section.jsx";
-import Badge from "../components/Badge.jsx";
-import FadeIn from "../components/FadeIn.jsx";
+import { Download, Briefcase, GraduationCap, Code } from "lucide-react"
+import { Button } from "../components/ui/button"
+import { Badge } from "../components/ui/badge"
+
+const experience = [
+  {
+    title: "DevOps Engineer - Internship",
+    company: "BeachWare",
+    period: "November 2025 - Present",
+    description: [
+      "Configured cloud deployment and infrastructure automation tasks managing all server data with 100% runtime.",
+      "Resolved 20+ networking issues, coordinating with vendors for installation and delivery.",
+      "Cooperated with 5 technical team members to analyze CI/CD pipeline products.",
+    ],
+  },
+  {
+    title: "Safety Operations",
+    company: "ABC Services",
+    period: "October 2024 - December 2024",
+    description: [
+      "Collaborated with Electrical, Signalling & Communication and Software Teams for 24/7 testing coverage.",
+      "Diagnosed system issues and streamlined testing workflows, reducing troubleshooting time by 15%.",
+      "Reported documentation for technical team alignment in team sizes up to 15 people.",
+    ],
+  },
+  {
+    title: "Team Management",
+    company: "EWB - UTS",
+    period: "February 2024 - November 2024",
+    description: [
+      "Led a team of 5 students in the Engineers Without Borders (EWB) Challenge.",
+      "Initiated problem-solving discussions resulting in innovative solutions with 95% success.",
+      "Delegated tasks and monitored progress ensuring completion on schedule in 12 weeks.",
+    ],
+  },
+]
+
+const education = [
+  {
+    degree: "Bachelor of Engineering (Software & Mechatronics)",
+    institution: "University of Technology Sydney (UTS)",
+    period: "January 2024 - December 2027",
+    details:
+      "Coursework includes: Secure Software Development, Computer Networking, Embedded Systems, and AI Applications.",
+  },
+  {
+    degree: "Network/Security+",
+    institution: "CompTIA",
+    period: "February 2025 - July 2025",
+    details: "Industry-recognised experience in network configuration, security principles, and threat mitigation.",
+  },
+]
+
+const skills = {
+  "Languages & Frameworks": ["Python", "Java", "JavaScript", "React", "SQL", "C"],
+  "Tools & Platforms": ["Supabase", "Git", "Docker", "AWS"],
+  Specializations: ["Cybersecurity", "IoT Development", "Embedded Systems", "Network Security", "AI Integration"],
+}
 
 export default function CV() {
+  const handleDownloadPDF = () => {
+    const link = document.createElement("a")
+    link.href = "/resume.pdf"
+    link.download = "Tarun_Patel_Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
-    <Section eyebrow="Resume" title="Curriculum Vitae">
-      {/* Top actions */}
-      <FadeIn>
-        <div className="flex flex-wrap gap-3 mb-6">
-          <a
-            href="/resume.pdf"
-            className="bg-emerald-500 hover:bg-emerald-400 text-black px-5 py-2 rounded-lg font-bold transition"
-          >
+    <div className="relative z-10 min-h-screen pt-28 pb-16">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="space-y-4">
+            <p className="text-primary font-mono text-sm tracking-wider uppercase">Resume</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Curriculum Vitae</h1>
+          </div>
+          <Button className="group shadow-md shadow-primary/20" onClick={handleDownloadPDF}>
+            <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
             Download PDF
-          </a>
-          <a
-            href="https://www.linkedin.com/in/tarunpatel03"
-            className="bg-[#0A66C2] hover:bg-[#004182] text-white px-5 py-2 rounded-lg font-bold transition"
-          >
-            LinkedIn
-          </a>
+          </Button>
         </div>
-      </FadeIn>
 
-      {/* EXPERIENCE */}
-      <FadeIn>
-        <div className="overflow-x-auto rounded-2xl border border-white/10 mb-10 bg-white/[0.02]">
-          <table className="min-w-full text-sm">
-            <thead className="bg-white/[0.04]">
-              <tr>
-                <th className="p-4 text-left w-64">Experience</th>
-                <th className="p-4 text-left">Focus / Skills & Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">Software Engineer Intern — KiwiQA Services (2025)</div>
-                  <div className="text-white/60 text-xs">Agile team, QA automation, tooling</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Automation test scripts, CI integration <Badge status="confident" /></li>
-                    <li>Jira workflows, sprint rituals, PR reviews <Badge status="confident" /></li>
-                    <li>Expanding test coverage & reporting <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">Freelance / Personal Projects</div>
-                  <div className="text-white/60 text-xs">React + Supabase apps, IoT prototypes, trading tools</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Full-stack (React, Supabase, Node) <Badge status="confident" /></li>
-                    <li>IoT (ESP32, Pi), basic PCB & sensors <Badge status="confident" /></li>
-                    <li>Python automation & analytics <Badge status="confident" /></li>
-                    <li>Hardening, auth, RBAC, docs <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </FadeIn>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main content - 2 columns */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Experience */}
+            <section>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-foreground">Experience</h2>
+              </div>
 
-      {/* EDUCATION */}
-      <FadeIn delay={80}>
-        <div className="overflow-x-auto rounded-2xl border border-white/10 mb-10 bg-white/[0.02]">
-          <table className="min-w-full text-sm">
-            <thead className="bg-white/[0.04]">
-              <tr>
-                <th className="p-4 text-left w-64">Education</th>
-                <th className="p-4 text-left">Focus / Skills & Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">UTS — B. Engineering (Software/Mechatronics) (Hons)</div>
-                  <div className="text-white/60 text-xs">2024–2027 (GPA 6.0/7.0)</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>OS, embedded systems, databases, systems arch <Badge status="confident" /></li>
-                    <li>Control systems, Simulink/Matlab <Badge status="learning" /></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">Certifications</div>
-                  <div className="text-white/60 text-xs">Security+, Network+, CEH</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Security fundamentals & network basics <Badge status="confident" /></li>
-                    <li>Deeper offensive/defensive labs <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </FadeIn>
+              <div className="space-y-8">
+                {experience.map((job) => (
+                  <div
+                    key={job.title}
+                    className="relative pl-8 border-l-2 border-border hover:border-primary/50 transition-colors"
+                  >
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-card border-2 border-primary" />
+                    <div className="space-y-3">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">{job.title}</h3>
+                          <p className="text-primary font-medium">{job.company}</p>
+                        </div>
+                        <Badge variant="outline" className="text-muted-foreground bg-secondary/50">
+                          {job.period}
+                        </Badge>
+                      </div>
+                      <ul className="space-y-2">
+                        {job.description.map((item, i) => (
+                          <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
+                            <span className="text-primary mt-1.5">•</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-      {/* KEY PROJECTS */}
-      <FadeIn delay={120}>
-        <div className="overflow-x-auto rounded-2xl border border-white/10 mb-10 bg-white/[0.02]">
-          <table className="min-w-full text-sm">
-            <thead className="bg-white/[0.04]">
-              <tr>
-                <th className="p-4 text-left w-64">Key Projects</th>
-                <th className="p-4 text-left">Focus / Skills & Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">TrackFlow — Inventory & Orders</div>
-                  <div className="text-white/60 text-xs">React + Supabase</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Auth, RLS, real-time tables, analytics <Badge status="confident" /></li>
-                    <li>RBAC policies & testing <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">AI Trading Bot</div>
-                  <div className="text-white/60 text-xs">Python, TA-Lib, broker APIs</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Strategy logic, data pipelines, backtests <Badge status="confident" /></li>
-                    <li>Robust risk mgmt & live ops <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4">
-                  <div className="font-semibold">IoT Access Control</div>
-                  <div className="text-white/60 text-xs">ESP32, RFID, Pi, Supabase</div>
-                </td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>RFID auth, cloud logs, dashboard <Badge status="confident" /></li>
-                    <li>Security testing (replay/clone) <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </FadeIn>
+            {/* Education */}
+            <section>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-foreground">Education</h2>
+              </div>
 
-      {/* SKILLS MATRIX */}
-      <FadeIn delay={160}>
-        <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
-          <table className="min-w-full text-sm">
-            <thead className="bg-white/[0.04]">
-              <tr>
-                <th className="p-4 text-left w-64">Skill Area</th>
-                <th className="p-4 text-left">Qualities / Tools & Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Project & Workflow */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Project & Workflow</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Confluence, Notion, Google/M365 <Badge status="confident" /></li>
-                    <li>Jira (boards, sprints, epics) <Badge status="confident" /></li>
-                    <li>Scrum ceremonies & backlog grooming <Badge status="confident" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Stakeholders */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Stakeholders & Teams</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Translate requirements → tech specs <Badge status="confident" /></li>
-                    <li>Presentations & demos <Badge status="confident" /></li>
-                    <li>Risk/trade-off communication <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Core Engineering */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Core Engineering</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Python, C/C++ <Badge status="confident" /></li>
-                    <li>Embedded (ESP32/Arduino), I2C/SPI/UART <Badge status="confident" /></li>
-                    <li>RTOS (FreeRTOS) <Badge status="learning" /></li>
-                    <li>Control systems, MATLAB/Simulink <Badge status="learning" /></li>
-                    <li>PCB/CAD basics (KiCad, Fusion) <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Software Practices */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Software Practices</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Git & PR flow <Badge status="confident" /></li>
-                    <li>Unit/integration testing <Badge status="working" /></li>
-                    <li>CI/CD (GitHub Actions) <Badge status="confident" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Data & ML */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Data & ML</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Pandas/NumPy/Matplotlib <Badge status="confident" /></li>
-                    <li>scikit-learn basics <Badge status="learning" /></li>
-                    <li>TensorFlow/PyTorch <Badge status="tolearn" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* DevOps & Cloud */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">DevOps & Cloud</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Docker (fundamentals) <Badge status="learning" /></li>
-                    <li>AWS/GCP/Azure (IoT/data) <Badge status="tolearn" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Professional */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Professional</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Technical writing & docs <Badge status="confident" /></li>
-                    <li>Compliance & safety standards <Badge status="tolearn" /></li>
-                    <li>Budgeting/ROI/BOMs <Badge status="working" /></li>
-                  </ul>
-                </td>
-              </tr>
-              {/* Soft Skills */}
-              <tr className="border-t border-white/10 align-top">
-                <td className="p-4 font-semibold">Soft Skills</td>
-                <td className="p-4">
-                  <ul className="list-disc pl-5 space-y-1 text-white/80">
-                    <li>Time management, prioritization <Badge status="confident" /></li>
-                    <li>Public speaking, demos <Badge status="confident" /></li>
-                    <li>Negotiation & scope mgmt <Badge status="working" /></li>
-                    <li>Mentoring & networking <Badge status="tolearn" /></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <div className="space-y-6">
+                {education.map((edu) => (
+                  <div
+                    key={edu.degree}
+                    className="p-6 rounded-2xl bg-card border border-border/60 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
+                        <p className="text-primary font-medium">{edu.institution}</p>
+                      </div>
+                      <Badge variant="outline" className="text-muted-foreground bg-secondary/50">
+                        {edu.period}
+                      </Badge>
+                    </div>
+                    <p className="text-muted-foreground text-sm">{edu.details}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Sidebar - Skills */}
+          <div className="space-y-8">
+            <section className="lg:sticky lg:top-28">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Code className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-foreground">Skills</h2>
+              </div>
+
+              <div className="space-y-6">
+                {Object.entries(skills).map(([category, items]) => (
+                  <div key={category} className="space-y-3">
+                    <h3 className="text-sm font-medium text-primary uppercase tracking-wider">{category}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {items.map((skill) => (
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="bg-secondary hover:bg-secondary/80 transition-colors"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Contact Info */}
+              <div className="mt-8 p-6 rounded-2xl bg-card border border-border/60 shadow-sm">
+                <h3 className="text-sm font-medium text-primary uppercase tracking-wider mb-4">Contact</h3>
+                <div className="space-y-3 text-sm">
+                  <p className="text-muted-foreground">
+                    <span className="text-foreground font-medium">Phone:</span> 0494171753
+                  </p>
+                  <p className="text-muted-foreground">
+                    <span className="text-foreground font-medium">Email:</span> tppatel003@gmail.com
+                  </p>
+                  <p className="text-muted-foreground">
+                    <span className="text-foreground font-medium">Portfolio:</span>{" "}
+                    <a href="https://tarunpatel03.github.io/" className="text-primary hover:underline">
+                      tarunpatel03.github.io
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-      </FadeIn>
-    </Section>
-  );
+      </div>
+    </div>
+  )
 }
-    
