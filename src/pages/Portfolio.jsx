@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ExternalLink, Github, Brain, Database, Shield, Activity, TrendingUp, Lock, X } from "lucide-react"
+import { ExternalLink, Github, Brain, Database, Shield, Activity, TrendingUp, Lock, Cloud } from "lucide-react"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../components/ui/dialog"
@@ -7,6 +7,7 @@ import projectsData from "../shared/projects"
 
 // Map icons for projects
 const iconMap = {
+  "beachware-devops": Cloud,
   "vulnerability-scanner": Shield,
   "trackflow": Database,
   "password-auditor": Lock,
@@ -18,7 +19,7 @@ const iconMap = {
 const projects = projectsData.map(project => ({
   ...project,
   icon: iconMap[project.slug] || Brain,
-  featured: ["vulnerability-scanner", "trackflow", "password-auditor", "ai-trading-bot"].includes(project.slug),
+  featured: ["beachware-devops", "vulnerability-scanner", "trackflow", "password-auditor", "ai-trading-bot"].includes(project.slug),
 }))
 
 export default function Portfolio() {

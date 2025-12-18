@@ -1,5 +1,59 @@
 const projects = [
   {
+    slug: "beachware-devops",
+    title: "Beachware — DevOps Engineer",
+    description:
+      "Led and executed core DevOps and infrastructure initiatives to support a rapidly growing platform, focusing on building scalable, reliable, and secure systems with improved deployment workflows.",
+    tech: [
+      "AWS",
+      "CI/CD Pipelines",
+      "Infrastructure Automation",
+      "Monitoring & Logging",
+      "Secrets Management",
+      "Cloud Infrastructure",
+    ],
+    status: "Professional Experience",
+    image: "/images/beachware.png",
+    highlights: [
+      "Designed and maintained cloud infrastructure supporting production and staging environments",
+      "Built and optimized CI/CD pipelines for faster, safer deployments reducing deployment risk",
+      "Automated infrastructure and operational workflows reducing manual overhead significantly",
+      "Implemented monitoring, logging, and alerting improving system reliability and uptime",
+      "Reduced deployment risk and downtime through automation and standardization",
+      "Improved release velocity and developer productivity across engineering teams",
+      "Enabled smoother scaling as product usage grew supporting business expansion",
+    ],
+    details: {
+      overview:
+        "At Beachware, I led and executed core DevOps and infrastructure initiatives to support a rapidly growing platform. My role focused on building scalable, reliable, and secure systems, improving deployment workflows, and reducing operational friction for both engineering and business teams. This role required ownership across cloud architecture, CI/CD pipelines, system reliability, and security best practices, working closely with developers and stakeholders to align infrastructure with product growth.",
+      workflow: [
+        "Designed and maintained cloud infrastructure to support production and staging environments",
+        "Built and optimized CI/CD pipelines for faster, safer deployments",
+        "Automated infrastructure and operational workflows to reduce manual overhead",
+        "Implemented monitoring, logging, and alerting to improve system reliability",
+        "Managed environment configuration, secrets, and access control",
+        "Supported scalability planning for traffic growth and feature expansion",
+        "Collaborated with developers to improve deployment stability and performance",
+      ],
+      challenges: [
+        "Managing infrastructure scaling while maintaining security and cost efficiency",
+        "Balancing deployment speed with stability and risk management",
+        "Coordinating infrastructure changes across multiple environments without disruption",
+        "Implementing monitoring and alerting that provides actionable insights without alert fatigue",
+      ],
+      future: [
+        "Advanced infrastructure-as-code practices and GitOps workflows",
+        "Kubernetes and container orchestration for improved scalability",
+        "Disaster recovery and multi-region deployment strategies",
+        "Cost optimization through infrastructure right-sizing and automation",
+        "Enhanced security posture with infrastructure security scanning",
+      ],
+    },
+    repo: null,
+    demo: null,
+  },
+
+  {
     slug: "vulnerability-scanner",
     title: "Vulnerability Scanner & PDF Report Generator",
     description:

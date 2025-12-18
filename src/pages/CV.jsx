@@ -6,7 +6,7 @@ const experience = [
   {
     title: "DevOps Engineer - Internship",
     company: "BeachWare",
-    period: "November 2025 - Present",
+    period: "July 2025 - Present",
     description: [
       "Configured cloud deployment and infrastructure automation tasks managing all server data with 100% runtime.",
       "Resolved 20+ networking issues, coordinating with vendors for installation and delivery.",
@@ -16,7 +16,7 @@ const experience = [
   {
     title: "Safety Operations",
     company: "ABC Services",
-    period: "October 2024 - December 2024",
+    period: "October 2024 - Present",
     description: [
       "Collaborated with Electrical, Signalling & Communication and Software Teams for 24/7 testing coverage.",
       "Diagnosed system issues and streamlined testing workflows, reducing troubleshooting time by 15%.",
