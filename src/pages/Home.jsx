@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
 import RocketSequence from "../components/RocketSequence"
+import RocketDiagram from "../components/RocketDiagram"
 
 const capabilities = [
   { id: "01", title: "Embedded systems", copy: "Software that respects timing, hardware limits and the physical world.", stack: "C / C++ · ESP32 · I²C / SPI / UART" },
@@ -22,8 +23,8 @@ const selectedWork = [
     number: "02",
     title: "Vaylo",
     type: "Company / Product",
-    copy: "Leading the company while translating strategy into product architecture, secure infrastructure and focused execution.",
-    tags: ["CEO", "Product", "Engineering"],
+    copy: "Co-founded with friends and built the product and technical foundations. Vaylo now operates independently of my day-to-day involvement.",
+    tags: ["Co-founder", "Product", "Engineering"],
     href: "#vaylo",
     accent: "vaylo-card",
   },
@@ -43,17 +44,17 @@ export default function Home() {
     <main className="home-page">
       <section className="hero section-shell" id="top">
         <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-status"><i /> Sydney, Australia <span>·</span> Building now</div>
+        <div className="hero-status"><i /> Sydney, Australia <span>·</span> Open to engineering roles</div>
 
         <div className="hero-copy">
           <p className="hero-kicker">Software × Mechatronics</p>
           <h1>I build systems<br />that <em>leave the ground.</em></h1>
           <p className="hero-summary">
-            I’m Tarun Patel—engineer, builder and CEO of Vaylo. Currently focused on the UTS Competition Rocket and products that bridge software with the physical world.
+            I’m Tarun Patel—an engineer building at the intersection of software and the physical world. From co-founding Vaylo to the UTS Competition Rocket, I turn ideas into working systems. Now open to engineering opportunities.
           </p>
           <div className="hero-actions">
             <a className="button-primary" href="#rocket">Explore the mission <ArrowDown size={17} /></a>
-            <a className="text-link" href="#vaylo">Inside Vaylo <ArrowRight size={16} /></a>
+            <a className="text-link" href="#vaylo">What I built at Vaylo <ArrowRight size={16} /></a>
           </div>
         </div>
 
@@ -61,16 +62,9 @@ export default function Home() {
           <div className="hero-orbit hero-orbit-a" />
           <div className="hero-orbit hero-orbit-b" />
           <div className="flight-path"><i /></div>
-          <div className="telemetry telemetry-a"><span>FLIGHT SYSTEMS</span><b>ACTIVE</b></div>
+          <div className="telemetry telemetry-a"><span>SYSTEM ARCHITECTURE</span><b>MODULAR BY DESIGN</b></div>
           <div className="telemetry telemetry-b"><span>MISSION</span><b>UTS ROCKET</b></div>
-          <svg viewBox="0 0 190 430" className="hero-rocket">
-            <path d="M95 12C61 48 47 96 47 158v146h96V158c0-62-14-110-48-146Z" fill="#eef0eb" />
-            <path d="M95 12v292" stroke="#889096" />
-            <path d="M47 300 15 365h32v-25h96v25h32l-32-65Z" fill="#9da3a6" />
-            <circle cx="95" cy="137" r="23" fill="#14191c" stroke="#b8ff47" strokeWidth="3" />
-            <path d="M59 224h72" stroke="#b8ff47" strokeWidth="6" />
-            <path d="M75 340h40l-20 88Z" fill="#b8ff47" opacity=".35" />
-          </svg>
+          <RocketDiagram className="hero-modular-rocket" />
         </div>
 
         <div className="hero-foot">
@@ -83,23 +77,23 @@ export default function Home() {
       <section className="vaylo-section" id="vaylo">
         <div className="section-shell">
           <div className="vaylo-heading">
-            <p className="eyebrow"><span>02</span> Building Vaylo</p>
-            <h2>Founder’s vision.<br /><em>Engineer’s discipline.</em></h2>
+            <p className="eyebrow"><span>02</span> Co-founded Vaylo</p>
+            <h2>Built from scratch.<br /><em>Built to run independently.</em></h2>
           </div>
 
           <div className="vaylo-grid">
             <div className="vaylo-statement">
               <div className="vaylo-wordmark">vaylo<span>°</span></div>
               <p>
-                As CEO, my contribution isn’t limited to one lane. I connect the product we want to build with the systems, decisions and technical foundation required to ship it.
+                I co-founded Vaylo with friends and, as CEO, helped turn our idea into a working business—from product direction to its technical foundations. Today, Vaylo operates independently of my day-to-day involvement, giving me the capacity to focus on my next engineering role.
               </p>
               <a href="mailto:tppatel003@gmail.com">Discuss the work <ArrowUpRight size={16} /></a>
             </div>
 
             <div className="vaylo-pillars">
-              <article><span>01</span><div><h3>Product direction</h3><p>Converting customer problems and company strategy into a focused product roadmap.</p></div></article>
-              <article><span>02</span><div><h3>Technical architecture</h3><p>Making pragmatic decisions across application, data, infrastructure and security.</p></div></article>
-              <article><span>03</span><div><h3>Team execution</h3><p>Creating clarity around priorities, ownership and what “done” actually means.</p></div></article>
+              <article><span>01</span><div><h3>Product direction</h3><p>Turned the initial idea and customer problems into a focused product roadmap.</p></div></article>
+              <article><span>02</span><div><h3>Technical architecture</h3><p>Helped build the application, data and infrastructure foundations that support the product.</p></div></article>
+              <article><span>03</span><div><h3>Independent operations</h3><p>Established the foundations for the business to run without my daily oversight.</p></div></article>
             </div>
           </div>
         </div>
