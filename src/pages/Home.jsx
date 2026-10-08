@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
 import RocketSequence from "../components/RocketSequence"
 import RocketDiagram from "../components/RocketDiagram"
@@ -40,9 +41,45 @@ const selectedWork = [
 ]
 
 export default function Home() {
+  const heroRef = useRef(null)
+  const visualRef = useRef(null)
+
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return undefined
+    const hero = heroRef.current
+    const visual = visualRef.current
+    if (!hero || !visual) return undefined
+
+    let frame = 0
+    let x = 0
+    let y = 0
+    const move = (event) => {
+      const rect = hero.getBoundingClientRect()
+      x = ((event.clientX - rect.left) / rect.width - 0.5) * 18
+      y = ((event.clientY - rect.top) / rect.height - 0.5) * 14
+      if (!frame) frame = requestAnimationFrame(() => {
+        visual.style.setProperty("--pointer-x", `${x}px`)
+        visual.style.setProperty("--pointer-y", `${y}px`)
+        frame = 0
+      })
+    }
+    const leave = () => {
+      visual.style.setProperty("--pointer-x", "0px")
+      visual.style.setProperty("--pointer-y", "0px")
+    }
+
+    hero.addEventListener("pointermove", move, { passive: true })
+    hero.addEventListener("pointerleave", leave)
+    return () => {
+      cancelAnimationFrame(frame)
+      hero.removeEventListener("pointermove", move)
+      hero.removeEventListener("pointerleave", leave)
+    }
+  }, [])
+
   return (
     <main className="home-page">
-      <section className="hero section-shell" id="top">
+      <section className="hero section-shell" id="top" ref={heroRef}>
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-status"><i /> Sydney, Australia <span>·</span> Open to engineering roles</div>
 
@@ -58,7 +95,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-hidden="true">
+        <div className="hero-visual" aria-hidden="true" ref={visualRef}>
           <div className="hero-orbit hero-orbit-a" />
           <div className="hero-orbit hero-orbit-b" />
           <div className="flight-path"><i /></div>
@@ -72,6 +109,19 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="mission-ribbon" aria-hidden="true">
+        <div>
+          <span>Embedded systems</span><i />
+          <span>Flight software</span><i />
+          <span>Product engineering</span><i />
+          <span>Technical leadership</span><i />
+          <span>Embedded systems</span><i />
+          <span>Flight software</span><i />
+          <span>Product engineering</span><i />
+          <span>Technical leadership</span><i />
+        </div>
+      </div>
+
       <RocketSequence />
 
       <section className="vaylo-section" id="vaylo">
@@ -82,7 +132,7 @@ export default function Home() {
           </div>
 
           <div className="vaylo-grid">
-            <div className="vaylo-statement">
+            <div className="vaylo-statement" data-reveal>
               <div className="vaylo-wordmark">vaylo<span>°</span></div>
               <p>
                 I co-founded Vaylo with friends and, as CEO, helped turn our idea into a working business—from product direction to its technical foundations. Today, Vaylo operates independently of my day-to-day involvement, giving me the capacity to focus on my next engineering role.
@@ -100,7 +150,7 @@ export default function Home() {
       </section>
 
       <section className="capabilities-section section-shell">
-        <div className="section-intro">
+        <div className="section-intro" data-reveal>
           <div>
             <p className="eyebrow"><span>03</span> Operating system</p>
             <h2>One skillset.<br /><em>Multiple altitudes.</em></h2>
@@ -109,7 +159,7 @@ export default function Home() {
         </div>
         <div className="capability-grid">
           {capabilities.map((item) => (
-            <article key={item.id}>
+            <article key={item.id} data-reveal>
               <span>{item.id}</span>
               <h3>{item.title}</h3>
               <p>{item.copy}</p>
@@ -120,7 +170,7 @@ export default function Home() {
       </section>
 
       <section className="work-section section-shell" id="work">
-        <div className="section-intro work-heading">
+        <div className="section-intro work-heading" data-reveal>
           <div>
             <p className="eyebrow"><span>04</span> Selected work</p>
             <h2>Built to work<br /><em>beyond the screen.</em></h2>
@@ -130,7 +180,7 @@ export default function Home() {
 
         <div className="work-list">
           {selectedWork.map((item) => (
-            <a href={item.href} className={`work-card ${item.accent}`} key={item.title}>
+            <a href={item.href} className={`work-card ${item.accent}`} key={item.title} data-reveal>
               <span className="work-number">{item.number}</span>
               <div className="work-type">{item.type}</div>
               <div className="work-main"><h3>{item.title}</h3><p>{item.copy}</p></div>
@@ -143,9 +193,11 @@ export default function Home() {
 
       <footer className="contact-section" id="contact">
         <div className="section-shell">
-          <p className="eyebrow"><span>05</span> Open channel</p>
-          <h2>Let’s build something<br /><em>with consequence.</em></h2>
-          <a className="contact-email" href="mailto:tppatel003@gmail.com">tppatel003@gmail.com <ArrowUpRight /></a>
+          <div data-reveal>
+            <p className="eyebrow"><span>05</span> Open channel</p>
+            <h2>Let’s build something<br /><em>with consequence.</em></h2>
+            <a className="contact-email" href="mailto:tppatel003@gmail.com">tppatel003@gmail.com <ArrowUpRight /></a>
+          </div>
           <div className="footer-row">
             <div className="social-links">
               <a href="https://github.com/tarunpatel03" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a>

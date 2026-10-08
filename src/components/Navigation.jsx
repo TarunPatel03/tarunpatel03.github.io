@@ -31,7 +31,7 @@ export function Navigation() {
         </div>
 
         <a className="nav-cta" href={home ? "#contact" : "/#contact"}>
-          Let's talk <ArrowUpRight size={14} />
+          <span>Let's talk</span> <ArrowUpRight size={14} />
         </a>
       </nav>
     </header>
