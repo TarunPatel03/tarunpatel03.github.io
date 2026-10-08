@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -30,6 +31,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Wait for the legacy Pages deployment
-        run: sleep 45
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in {1..60}; do
+            status=$(gh run list --repo "$GITHUB_REPOSITORY" --commit "$GITHUB_SHA" --limit 10 --json name,status --jq '[.[] | select(.name == "pages build and deployment")][0].status // ""')
+            if [ "$status" = "completed" ]; then
+              echo "Legacy Pages deployment completed."
+              exit 0
+            fi
+            echo "Waiting for legacy Pages deployment (attempt $attempt/60, status: ${status:-not-found})"
+            sleep 5
+          done
+          echo "Timed out waiting for the legacy Pages deployment."
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
