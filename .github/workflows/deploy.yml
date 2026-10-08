@@ -1,7 +1,9 @@
 name: Deploy Vite site to GitHub Pages
 on:
-  push:
-    branches: [ main-v2 ]
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [main-v2]
   workflow_dispatch:
 
 permissions:
@@ -11,9 +13,12 @@ permissions:
 
 jobs:
   build:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
