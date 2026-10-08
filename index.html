@@ -12,6 +12,14 @@
     <title>Tarun Patel — Engineer & CEO</title>
   </head>
   <body>
+    <script>
+      const redirect = sessionStorage.getItem("spa-redirect")
+      if (redirect) {
+        sessionStorage.removeItem("spa-redirect")
+        const target = new URL(redirect)
+        history.replaceState(null, "", target.pathname + target.search + target.hash)
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

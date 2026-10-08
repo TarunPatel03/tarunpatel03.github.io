@@ -74,7 +74,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--acid); outline-
 
 .site-header { position: fixed; inset: 18px 0 auto; z-index: 100; padding: 0 24px; }
 .nav-island {
-  width: min(760px, 100%);
+  width: min(920px, 100%);
   min-height: 58px;
   margin: auto;
   padding: 7px 8px 7px 18px;
@@ -95,6 +95,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--acid); outline-
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a { position: relative; padding: 10px 14px; border-radius: 99px; color: #adb2b2; font-size: 12px; font-weight: 650; transition: .25s ease; }
 .nav-links a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.nav-menu, .mobile-nav { position: relative; }
+.nav-menu summary, .mobile-nav summary { list-style: none; cursor: pointer; }
+.nav-menu summary::-webkit-details-marker, .mobile-nav summary::-webkit-details-marker { display: none; }
+.nav-menu summary { display: flex; align-items: center; gap: 5px; padding: 10px 14px; border-radius: 99px; color: #adb2b2; font-size: 12px; font-weight: 650; }
+.nav-menu summary:hover, .nav-menu[open] summary { background: rgba(255,255,255,.08); color: #fff; }
+.nav-menu[open] summary svg { transform: rotate(180deg); }
+.nav-menu > div, .mobile-nav > div { position: absolute; top: calc(100% + 14px); right: 0; min-width: 190px; padding: 8px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: rgba(17,21,23,.97); box-shadow: 0 18px 45px rgba(0,0,0,.28); }
+.nav-menu > div { display: grid; }
+.nav-menu > div a { padding: 11px 12px; border-radius: 9px; }
+.mobile-nav { display: none; }
+.mobile-nav summary { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: var(--ink); background: var(--acid); }
+.mobile-nav > div { display: grid; width: min(260px, calc(100vw - 24px)); }
+.mobile-nav a { padding: 12px; border-radius: 9px; color: #d9ddda; font-size: 13px; font-weight: 700; }
+.mobile-nav a:hover { color: var(--ink); background: var(--acid); }
 .nav-cta { display: flex; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 99px; color: var(--ink); background: var(--acid); font-size: 12px; font-weight: 800; transition: transform .25s ease, box-shadow .25s ease; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 18px rgba(184,255,71,.25); }
 
@@ -240,6 +254,75 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--acid); outline-
 .work-card > .tag-row { position: relative; z-index: 2; }
 .work-arrow { position: relative; z-index: 2; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; transition: transform .3s ease, background .3s ease; }
 .work-card:hover .work-arrow { transform: rotate(45deg); color: var(--ink); background: var(--acid); border-color: var(--acid); }
+
+.eportfolio-section { padding: 140px 5vw 160px; background: var(--paper-2); }
+.eportfolio-heading { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; gap: 8vw; }
+.eportfolio-heading h2 { margin: 0; font-size: clamp(48px, 5.6vw, 92px); line-height: .9; letter-spacing: -.065em; }
+.eportfolio-heading h2 em { color: #667071; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.eportfolio-heading > p { margin: 0 0 6px; color: var(--text-muted); font-size: 16px; line-height: 1.65; }
+.eportfolio-links { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 82px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.eportfolio-links > a { position: relative; min-height: 310px; display: grid; grid-template-columns: 1fr auto; align-content: space-between; gap: 22px; padding: 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: color .3s ease, background .3s ease, transform .3s ease; }
+.eportfolio-links > a > span { color: var(--text-muted); font: 700 10px monospace; }
+.eportfolio-links > a > svg:not(.eportfolio-arrow) { color: #667071; }
+.eportfolio-links > a > div { grid-column: 1 / -1; margin-top: auto; }
+.eportfolio-links h3 { margin: 0; font-size: clamp(24px, 2.2vw, 34px); line-height: 1; letter-spacing: -.045em; }
+.eportfolio-links p { margin: 14px 0 0; color: var(--text-muted); font-size: 14px; line-height: 1.55; }
+.eportfolio-arrow { position: absolute; top: 24px; right: 24px; }
+.eportfolio-links > a:hover { color: #f2f4ef; background: var(--night); transform: translateY(-7px); }
+.eportfolio-links > a:hover > svg { color: var(--acid); }
+
+/* Assessment documents */
+.document-page { min-height: 100vh; background: var(--paper); }
+.document-hero { position: relative; overflow: hidden; padding: 150px 24px 80px; color: #f2f4ef; background: var(--night); }
+.document-hero-grid { position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(255,255,255,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.11) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent); }
+.document-hero-inner { position: relative; width: min(1040px, 100%); margin: auto; }
+.document-kicker, .document-label { margin: 0 0 22px; color: var(--acid); font: 700 11px/1.4 monospace; letter-spacing: .13em; text-transform: uppercase; }
+.document-hero h1 { max-width: 930px; margin: 0; font-size: clamp(54px, 7vw, 104px); line-height: .9; letter-spacing: -.07em; }
+.document-summary { max-width: 720px; margin: 28px 0 0; color: #aeb5b3; font-size: 18px; line-height: 1.6; }
+.document-download { width: fit-content; display: inline-flex; align-items: center; gap: 9px; margin-top: 28px; padding: 13px 17px; border-radius: 99px; color: var(--ink); background: var(--acid); font-size: 12px; font-weight: 800; }
+.document-shell { width: min(1100px, calc(100% - 40px)); margin: 60px auto 120px; }
+.document-paper { padding: clamp(35px, 7vw, 82px); border: 1px solid var(--line); background: #f7f8f4; box-shadow: 0 24px 70px rgba(17,21,23,.08); }
+.document-paper h2, .document-paper h3, .document-paper p { overflow-wrap: anywhere; }
+.document-paper p, .document-paper li, .document-paper dd { color: #3f4848; font-size: 15px; line-height: 1.72; }
+.document-paper address { font-style: normal; }
+.cv-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding-bottom: 34px; border-bottom: 3px solid var(--ink); }
+.cv-heading h2, .letter-sender h2 { margin: 0; font-size: clamp(36px, 5vw, 58px); letter-spacing: -.055em; }
+.cv-heading p { margin: 7px 0 0; color: var(--text-muted); font: 700 11px monospace; letter-spacing: .08em; text-transform: uppercase; }
+.cv-heading address, .letter-sender { display: grid; gap: 7px; text-align: right; font-size: 13px; }
+.cv-heading a, .letter-sender a { text-decoration: underline; text-decoration-color: #a7b1ad; text-underline-offset: 3px; }
+.cv-document > section { padding: 42px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
+.cv-document > section:last-child { border: 0; padding-bottom: 0; }
+.cv-document section > h2 { margin: 0 0 24px; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
+.cv-document section > p { max-width: 900px; margin: 0; }
+.cv-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+.cv-projects div { padding-top: 15px; border-top: 1px solid var(--line); }
+.cv-projects h3, .cv-role h3 { margin: 0; font-size: 18px; letter-spacing: -.025em; }
+.cv-projects p { margin: 7px 0 0; }
+.cv-timeline, .cv-education { display: grid; gap: 30px; }
+.cv-timeline > article, .cv-education > article { padding-left: 22px; border-left: 2px solid #8bbf39; }
+.cv-role { display: flex; align-items: flex-start; justify-content: space-between; gap: 25px; }
+.cv-role p { margin: 4px 0 0; color: #62706c; font-weight: 700; }
+.cv-role time { flex: 0 0 auto; color: #596462; font: 650 11px/1.5 monospace; }
+.cv-document ul { margin: 16px 0 0; padding-left: 19px; }
+.cv-document li + li { margin-top: 7px; }
+.cv-skills { display: grid; grid-template-columns: 1fr 1fr; margin: 0; gap: 0 40px; }
+.cv-skills div { padding: 17px 0; border-top: 1px solid var(--line); }
+.cv-skills dt { font-size: 14px; font-weight: 800; }
+.cv-skills dd { margin: 6px 0 0; }
+.cv-education > article > p { margin: 13px 0 0; }
+.letter-document { max-width: 900px; margin: auto; }
+.letter-sender { margin-bottom: 42px; text-align: left; }
+.letter-document > time { display: block; margin-bottom: 34px; font-weight: 700; }
+.letter-document > address { margin-bottom: 34px; line-height: 1.6; }
+.letter-document > p { margin: 0 0 22px; }
+.letter-closing { padding-top: 10px; }
+.reflection-document { max-width: 940px; margin: auto; }
+.reflection-document > header { padding-bottom: 38px; border-bottom: 3px solid var(--ink); }
+.reflection-document > header h2 { margin: 0; font-size: clamp(38px, 5vw, 62px); letter-spacing: -.055em; }
+.reflection-context { margin: 10px 0 0 !important; color: var(--text-muted) !important; font: 700 11px monospace !important; letter-spacing: .08em; text-transform: uppercase; }
+.reflection-document > section { display: grid; grid-template-columns: minmax(180px, .42fr) 1fr; gap: 45px; padding: 38px 0; border-bottom: 1px solid var(--line); }
+.reflection-document > section h3 { margin: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.025em; }
+.reflection-document > section p { margin: 0; }
 
 .contact-section { margin: 0 24px 24px; padding: 130px 5vw 36px; border-radius: 30px; background: var(--acid); color: var(--ink); }
 .contact-section h2 { max-width: 1050px; font-size: clamp(54px, 7.2vw, 112px); }
@@ -438,4 +521,56 @@ button:focus-visible, a:focus-visible { outline: 3px solid #71952e; outline-offs
 }
 @media (prefers-reduced-motion: reduce) {
   .rocket-module { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 820px) {
+  .eportfolio-heading { grid-template-columns: 1fr; gap: 34px; }
+  .eportfolio-links { grid-template-columns: 1fr; }
+  .eportfolio-links > a { min-height: 230px; }
+  .reflection-document > section { grid-template-columns: 1fr; gap: 15px; }
+}
+
+@media (max-width: 620px) {
+  .nav-links, .nav-cta { display: none; }
+  .mobile-nav { display: block; }
+  .nav-island { width: 100%; }
+  .document-hero { padding: 120px 20px 62px; }
+  .document-summary { font-size: 16px; }
+  .document-shell { width: calc(100% - 24px); margin-block: 24px 70px; }
+  .document-paper { padding: 28px 22px; }
+  .cv-heading, .cv-role { flex-direction: column; }
+  .cv-heading address { text-align: left; }
+  .cv-projects, .cv-skills { grid-template-columns: 1fr; }
+  .cv-role { gap: 8px; }
+  .eportfolio-section { padding: 95px 18px; }
+  .eportfolio-heading h2 { font-size: clamp(43px, 13vw, 58px); }
+  .eportfolio-links { margin-top: 52px; }
+}
+
+@media print {
+  @page { size: A4; margin: 14mm; }
+  html, body, .document-page { background: #fff !important; }
+  .site-header, .page-progress, .document-hero { display: none !important; }
+  .document-shell { width: 100%; margin: 0; }
+  .document-paper { max-width: none; margin: 0; padding: 0; border: 0; background: #fff; box-shadow: none; }
+  .document-paper p, .document-paper li, .document-paper dd { color: #26302f; font-size: 9.5pt; line-height: 1.45; }
+  .cv-heading { padding-bottom: 18px; }
+  .cv-heading h2, .letter-sender h2 { font-size: 28pt; }
+  .cv-document > section { padding: 18px 0; }
+  .cv-document section > h2 { margin-bottom: 12px; }
+  .cv-projects { gap: 10px 25px; }
+  .cv-projects div { padding-top: 8px; }
+  .cv-projects h3, .cv-role h3 { font-size: 12pt; }
+  .cv-timeline, .cv-education { gap: 15px; }
+  .cv-timeline > article, .cv-education > article, .cv-projects > div, .reflection-document > section { break-inside: avoid; }
+  .cv-document ul { margin-top: 8px; }
+  .cv-document li + li { margin-top: 3px; }
+  .cv-skills div { padding: 8px 0; }
+  .letter-sender { margin-bottom: 24px; }
+  .letter-document > time, .letter-document > address { margin-bottom: 20px; }
+  .letter-document > p { margin-bottom: 12px; }
+  .reflection-document > header { padding-bottom: 22px; }
+  .reflection-document > header h2 { font-size: 30pt; }
+  .reflection-document > section { grid-template-columns: 45mm 1fr; gap: 10mm; padding: 20px 0; }
+  .reflection-document > section h3 { font-size: 13pt; }
 }

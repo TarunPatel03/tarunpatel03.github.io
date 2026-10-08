@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
-import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
+import { Link } from "react-router-dom"
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, FileText, Github, Linkedin, Mail } from "lucide-react"
 import RocketSequence from "../components/RocketSequence"
 import RocketDiagram from "../components/RocketDiagram"
 
@@ -191,10 +192,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="eportfolio-section" id="eportfolio">
+        <div className="section-shell">
+          <div className="eportfolio-heading" data-reveal>
+            <div>
+              <p className="eyebrow"><span>05</span> Professional Practice ePortfolio</p>
+              <h2>Engineering practice,<br /><em>documented.</em></h2>
+            </div>
+            <p>I’m Tarun Patel, a Software and Mechatronics Engineering student at UTS. This ePortfolio brings together my curriculum vitae, professional cover letter and Professional Practice 1A reflection.</p>
+          </div>
+          <div className="eportfolio-links">
+            <Link to="/cv" data-reveal><span>01</span><FileText aria-hidden="true" /><div><h3>Curriculum Vitae</h3><p>Education, experience, engineering projects and technical skills.</p></div><ArrowUpRight className="eportfolio-arrow" aria-hidden="true" /></Link>
+            <Link to="/cover-letter" data-reveal><span>02</span><FileText aria-hidden="true" /><div><h3>Cover Letter</h3><p>Application to the Industrus Engineering Graduate Program.</p></div><ArrowUpRight className="eportfolio-arrow" aria-hidden="true" /></Link>
+            <Link to="/reflections" data-reveal><span>03</span><BookOpen aria-hidden="true" /><div><h3>Professional Practice 1A Reflections</h3><p>Reflection on my DevOps internship at Beachware.</p></div><ArrowUpRight className="eportfolio-arrow" aria-hidden="true" /></Link>
+          </div>
+        </div>
+      </section>
+
       <footer className="contact-section" id="contact">
         <div className="section-shell">
           <div data-reveal>
-            <p className="eyebrow"><span>05</span> Open channel</p>
+            <p className="eyebrow"><span>06</span> Open channel</p>
             <h2>Let’s build something<br /><em>with consequence.</em></h2>
             <a className="contact-email" href="mailto:tppatel003@gmail.com">tppatel003@gmail.com <ArrowUpRight /></a>
           </div>

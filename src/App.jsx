@@ -5,6 +5,8 @@ import RevealMotion from "./components/RevealMotion";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import CV from "./pages/CV";
+import CoverLetter from "./pages/CoverLetter";
+import Reflections from "./pages/Reflections";
 import Connect from "./pages/Connect";
 
 export default function App() {
@@ -17,6 +19,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/cv" element={<CV />} />
+        <Route path="/cover-letter" element={<CoverLetter />} />
+        <Route path="/reflections" element={<Reflections />} />
         <Route path="/connect" element={<Connect />} />
         <Route path="*" element={<Home />} />
       </Routes>

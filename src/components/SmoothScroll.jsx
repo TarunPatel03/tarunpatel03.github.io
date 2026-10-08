@@ -37,10 +37,16 @@ export default function SmoothScroll() {
   }, [])
 
   useLayoutEffect(() => {
+    window.history.scrollRestoration = "manual"
     if (!location.hash) {
-      window.history.scrollRestoration = "manual"
       window.scrollTo(0, 0)
+      return undefined
     }
+
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
+    })
+    return () => cancelAnimationFrame(frame)
   }, [location.pathname, location.hash])
 
   return <div className="page-progress" aria-hidden="true"><i /></div>
