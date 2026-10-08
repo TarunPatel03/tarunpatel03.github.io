@@ -4,7 +4,7 @@ import { ArrowUpRight, ChevronDown, Menu } from "lucide-react"
 const primaryLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/portfolio" },
-  { name: "Experience", href: "/cv#experience" },
+  { name: "Experience", href: "/cv" },
 ]
 
 const portfolioLinks = [

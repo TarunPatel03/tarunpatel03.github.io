@@ -43,10 +43,16 @@ export default function SmoothScroll() {
       return undefined
     }
 
-    const frame = requestAnimationFrame(() => {
-      document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
-    })
-    return () => cancelAnimationFrame(frame)
+    const scrollToTarget = () => {
+      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)))
+      target?.scrollIntoView({ behavior: "auto" })
+    }
+    const frame = requestAnimationFrame(() => requestAnimationFrame(scrollToTarget))
+    const timeout = window.setTimeout(scrollToTarget, 120)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.clearTimeout(timeout)
+    }
   }, [location.pathname, location.hash])
 
   return <div className="page-progress" aria-hidden="true"><i /></div>
